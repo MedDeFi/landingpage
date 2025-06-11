@@ -2,6 +2,8 @@
 
 import React, { useState, ChangeEvent } from 'react';
 import { Mail, User, CheckCircle } from 'lucide-react';
+import  { addWaitlistPatient } from './api/insertPatient';
+
 
 const PatientForm = () => {
   const [formData, setFormData] = useState({
@@ -20,10 +22,32 @@ const PatientForm = () => {
     });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     setIsSubmitted(true);
     // Here you would typically send the data to your backend
-    setTimeout(() => setIsSubmitted(false), 3000);
+    try {
+      const result = await addWaitlistPatient({
+        name: formData.name,
+        email: formData.email,
+        procedure: formData.procedure,
+        customProcedure: formData.customProcedure
+      })
+
+      if (!result.success) {
+        throw new Error('Failed to submit form')
+      }
+      setFormData({
+        name: '',
+        email: '',
+        procedure: '',
+        customProcedure: ''
+      });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    } finally {
+      // Reset form after submission
+      setTimeout(() => setIsSubmitted(false), 3000);
+    }
   };
 
   const procedures = [
