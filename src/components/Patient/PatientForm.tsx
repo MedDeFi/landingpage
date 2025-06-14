@@ -2,6 +2,8 @@
 
 import React, { useState, ChangeEvent } from 'react';
 import { Mail, User, CheckCircle } from 'lucide-react';
+import  { addWaitlistPatient } from './api/insertPatient';
+import { toast, Toaster } from 'react-hot-toast';
 
 const PatientForm = () => {
   const [formData, setFormData] = useState({
@@ -20,10 +22,34 @@ const PatientForm = () => {
     });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     setIsSubmitted(true);
     // Here you would typically send the data to your backend
-    setTimeout(() => setIsSubmitted(false), 3000);
+    try {
+      const result = await addWaitlistPatient({
+        name: formData.name,
+        email: formData.email,
+        procedure: formData.procedure,
+        customProcedure: formData.customProcedure
+      })
+
+      if (!result.success) {
+        throw new Error('Failed to submit form')
+      }
+      toast.success('Patient added to waitlist!');
+      setFormData({
+        name: '',
+        email: '',
+        procedure: '',
+        customProcedure: ''
+      });
+    } catch (error) {
+      toast.error('Something went wrong. Please try again.');
+      console.error('Error submitting form:', error);
+    } finally {
+      // Reset form after submission
+      setTimeout(() => setIsSubmitted(false), 3000);
+    }
   };
 
   const procedures = [
@@ -39,6 +65,7 @@ const PatientForm = () => {
 
   return (
     <div className="py-16 md:py-24 bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800">
+      <Toaster position="top-right" />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 p-6 md:p-8 lg:p-12">
           {!isSubmitted ? (
