@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
-const Preview = dynamic(() => import('../../components/landingpagebaby/Landing3'), {
+const Preview = dynamic(() => import('../../components/landingpageOnlyMobile/Landing3'), {
   loading: () => <div className="h-screen bg-gray-100 animate-pulse" />,
   ssr: false
 });
