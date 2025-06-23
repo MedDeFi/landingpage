@@ -24,3 +24,36 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Add missing animations */
+@keyframes fadeIn { 
+  from { opacity: 0; transform: translateY(10px); } 
+  to { opacity: 1; transform: translateY(0); } 
+}
+.animate-fade-in { 
+  animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) both; 
+}
+
+@keyframes fadeInUp { 
+  from { opacity: 0; transform: translateY(40px) scale(0.98); } 
+  to { opacity: 1; transform: translateY(0) scale(1); } 
+}
+.animate-fade-in-up { 
+  animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) both; 
+  animation-delay: 0.2s; 
+}
+
+@keyframes blurIn { 
+  from { filter: blur(0px); } 
+  to { filter: blur(4px); } 
+}
+@keyframes blurOut { 
+  from { filter: blur(4px); } 
+  to { filter: blur(0px); } 
+}
+.animate-blur-in { 
+  animation: blurIn 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards; 
+}
+.animate-blur-out { 
+  animation: blurOut 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards; 
+}

@@ -1,0 +1,14 @@
+import React from 'react';
+import { AnimatedSection } from '@/components/sections/AnimatedSection';        
+import { FeatureCard } from '@/components/ui/FeatureCard';
+import { featuresData } from '@/lib/data';  
+
+export const FeaturesSection = () => (
+  <AnimatedSection className="relative -mt-12 pt-28 pb-20 px-6 bg-gray-200 shadow-xl backdrop-blur-2xl rounded-b-3xl z-30"> 
+    <h2 className="text-4xl font-bold text-center text-gray-900 mb-3">Smarter, Faster Healthcare</h2>
+    <p className="text-center text-gray-600 mb-10">Stop guessing. Start knowing.</p>
+    <div className="space-y-4">
+        {featuresData.map((feature, i) => <FeatureCard key={i} {...feature} />)}
+    </div>
+  </AnimatedSection>
+);

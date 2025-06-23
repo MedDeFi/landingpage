@@ -1,12 +1,11 @@
 "use client";
 
 import React, { useState, useEffect, useRef, MouseEvent as ReactMouseEvent } from 'react';
-import Navbar from '@/components/layout/NavBar';  
+import Navbar from '@/components/layout/NavBar';    
 import { FiMenu, FiPhone, FiUser } from 'react-icons/fi';
 
-
 // --- Main App Component ---
-export default function Landing3() {
+export default function Landing4() {
 
   // --- Helper Hooks & Components (Apple UI Style) ---
 
@@ -369,12 +368,10 @@ export default function Landing3() {
 
 
     return (
-      <div className="flex justify-center items-center bg-black min-h-screen">
-        <div className="w-full max-w-sm h-[844px] max-h-[844px] bg-gray-50 rounded-[44px] shadow-2xl overflow-hidden relative border-8 border-black">
+      <div className="flex justify-center items-center min-h-screen">
+        <div className="w-full rounded-[44px] shadow-2xl overflow-hidden relative">
           
           <WaitlistModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-7 bg-black rounded-b-2xl z-50"></div>
 
           <div className="h-full overflow-y-auto bg-gray-200 main-content relative">
               {/* --- HERO SECTION --- */}
