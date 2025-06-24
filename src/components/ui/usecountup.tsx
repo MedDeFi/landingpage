@@ -1,3 +1,5 @@
+import React from 'react';
+
 const useCountUp = (end: number, duration: number = 2000) => {
     const ref = React.useRef<HTMLSpanElement>(null);
     React.useEffect(() => {
