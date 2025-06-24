@@ -56,8 +56,8 @@ export default function LandingPage() {
       {isModalOpen && (
         <WaitlistModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} position={modalPosition} />
       )}
-      <div className="w-full max-w-5xl mx-auto bg-gray-50 relative px-2 sm:px-4 md:px-8 py-4 sm:py-8">
-        <header className={`flex-1 justify-between items-center transition-all duration-700 ease-in-out relative z-50 bg-gray-200/80 backdrop-blur-sm px-2 sm:px-4 md:px-8 ${isModalOpen ? 'animate-blur-in' : 'animate-blur-out'}`}>
+      <div className="w-full max-w-screen-xl mx-auto bg-gray-50 relative px-1 sm:px-2 md:px-4 py-4 sm:py-8">
+        <header className={`flex-1 justify-between items-center transition-all duration-700 ease-in-out relative z-50 bg-gray-200/80 backdrop-blur-sm px-1 sm:px-2 md:px-4 ${isModalOpen ? 'animate-blur-in' : 'animate-blur-out'}`}>
           <NavBar />
         </header>
         <HeroSection />
