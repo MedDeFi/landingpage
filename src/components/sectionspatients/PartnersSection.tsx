@@ -1,6 +1,6 @@
 import React from 'react';
 import { AnimatedSection } from './AnimatedSection';
-import { PartnerLogo } from '../ui/PartnerLogo';
+import { PartnerLogo } from '../uipatients/PartnerLogo';
 
 export const PartnersSection = () => (
   <AnimatedSection className="py-16 rounded-3xl mx-4 bg-gray-50">

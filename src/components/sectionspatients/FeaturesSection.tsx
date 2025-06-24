@@ -1,6 +1,6 @@
 import React from 'react';
-import { AnimatedSection } from '@/components/sections/AnimatedSection';        
-import { FeatureCard } from '@/components/ui/FeatureCard';
+import { AnimatedSection } from '@/components/sectionspatients/AnimatedSection';        
+import { FeatureCard } from '@/components/uipatients/FeatureCard';
 import { featuresData } from '@/lib/data';  
 
 export const FeaturesSection = () => (

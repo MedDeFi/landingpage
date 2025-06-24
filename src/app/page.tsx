@@ -1,18 +1,16 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
-import dynamic from 'next/dynamic';
 import NavBar from '@/components/layout/NavBar';
-import { WaitlistModal } from '@/components/ui/WaitlistModal';
-import { HeroSection } from '@/components/sections/HeroSection';
-import { FeaturesSection } from '@/components/sections/FeaturesSection';
-import { HowItWorksSection } from '@/components/sections/HowItWorksSection';
-import { PoweredByAISection } from '@/components/sections/PoweredByAISection';
-import { TestimonialsSection } from '@/components/sections/TestimonialsSection';
-import { PartnersSection } from '@/components/sections/PartnersSection';
-import { FAQSection } from '@/components/sections/FAQSection';
-import { CtaSection } from '@/components/sections/CtaSection';
-import HeroSectionUnified from '@/components/sections/HeroSectionUnified';
+import { WaitlistModal } from '@/components/uipatients/WaitlistModal';
+import { FeaturesSection } from '@/components/sectionspatients/FeaturesSection';
+import { HowItWorksSection } from '@/components/sectionspatients/HowItWorksSection';
+import { PoweredByAISection } from '@/components/sectionspatients/PoweredByAISection';
+import { TestimonialsSection } from '@/components/sectionspatients/TestimonialsSection';
+import { PartnersSection } from '@/components/sectionspatients/PartnersSection';
+import { FAQSection } from '@/components/sectionspatients/FAQSection';
+import { CtaSection } from '@/components/sectionspatients/CtaSection';
+import HeroSectionUnified from '@/components/sectionsdoctor/HeroSectionDoctor';
 
 
 
@@ -32,13 +30,14 @@ export default function LandingPage() {
           { threshold: 0.1 }
       );
 
-      if (ctaSectionRef.current) {
-          observer.observe(ctaSectionRef.current);
+      const currentRef = ctaSectionRef.current;
+      if (currentRef) {
+          observer.observe(currentRef);
       }
 
       return () => {
-        if (ctaSectionRef.current) {
-          observer.unobserve(ctaSectionRef.current)
+        if (currentRef) {
+          observer.unobserve(currentRef)
         }
       };
   }, []);

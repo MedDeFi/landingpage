@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { FiMenu, FiPhone, FiUser } from 'react-icons/fi';
 
-const Navbar = () => {
+const NavBarbig = () => {
   const [isOpen, setIsOpen] = useState(false);
   const MedDeFiLogoType = () => (
     <div className="flex items-center space-x-2">
@@ -59,4 +59,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar; 
+export default NavBarbig; 

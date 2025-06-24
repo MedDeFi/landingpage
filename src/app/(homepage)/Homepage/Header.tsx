@@ -12,12 +12,6 @@ const MedDeFiLogo = () => (
   </div>
 );
 
-const MobileAppButton = () => (
-  <div className="px-4 py-2 bg-gray-100 text-gray-600 rounded-lg cursor-not-allowed">
-    Mobile App Coming Soon
-  </div>
-);
-
 const ConnectWalletButton = () => {
   const [isConnected, setIsConnected] = useState(false);
   const [address, setAddress] = useState('');
@@ -27,8 +21,9 @@ const ConnectWalletButton = () => {
     setIsLoading(true);
     try {
       // Basic wallet connection logic
-      if (typeof window !== 'undefined' && (window as any).ethereum) {
-        const accounts = await (window as any).ethereum.request({
+      if (typeof window !== 'undefined' && (window as unknown as { ethereum?: unknown }).ethereum) {
+        const ethereum = (window as unknown as { ethereum: { request: (params: { method: string }) => Promise<string[]> } }).ethereum;
+        const accounts = await ethereum.request({
           method: 'eth_requestAccounts',
         });
         
@@ -95,6 +90,7 @@ const Header = () => {
 
         {/* Right Section */}
         <div className="flex items-center space-x-4">
+          <ConnectWalletButton />
         </div>
       </div>
     </header>

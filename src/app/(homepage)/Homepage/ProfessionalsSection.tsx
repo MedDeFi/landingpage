@@ -72,11 +72,6 @@ const ProfessionalsSection = () => {
     setCurrentSlide(index);
   };
 
-  const getCurrentSlideItems = () => {
-    const startIndex = currentSlide * itemsPerSlide;
-    return professionals.slice(startIndex, startIndex + itemsPerSlide);
-  };
-
   return (
     <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 sm:p-8 min-h-screen flex items-center justify-center w-full" style={{ fontFamily: 'Poppins, sans-serif' }}>
       {/* Outer Container */}

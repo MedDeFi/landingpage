@@ -4,8 +4,7 @@ import {
   Heart,
   Shield,
   Users,
-  Stethoscope,
-  Plus
+  Stethoscope
 } from 'lucide-react';
 
 const PartnerSection: React.FC = () => {

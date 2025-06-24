@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react'; // Import the entire React object
-import { AnimatedSection } from '@/components/sections/AnimatedSection';    
+import { AnimatedSection } from '@/components/sectionspatients/AnimatedSection';    
 
 // Define the props for our section
 interface CtaSectionProps {
@@ -14,7 +14,7 @@ export const CtaSection = React.forwardRef<HTMLDivElement, CtaSectionProps>(
   ({ onClaimSpot }, ref) => {
     return (
       <AnimatedSection ref={ref} className="py-20 px-6 mx-4 mb-16 mt-16 text-center rounded-3xl bg-gray-100 z-60">
-        <h2 className="text-4xl font-bold text-gray-900">Don't Miss Out</h2>
+        <h2 className="text-4xl font-bold text-gray-900">Don&apos;t Miss Out</h2>
         <p className="text-gray-600 mt-3 mb-8">Join the waitlist for exclusive early access and be a part of the healthcare revolution.</p>
         <button 
           onClick={onClaimSpot} 

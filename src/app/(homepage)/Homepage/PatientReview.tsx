@@ -62,7 +62,7 @@ const PatientReview: React.FC = () => {
 
             {/* Review Text */}
             <blockquote className="text-slate-700 text-base leading-relaxed mb-8 relative">
-              <span className="text-4xl text-blue-200 absolute -top-2 -left-1 font-serif">"</span>
+              <span className="text-4xl text-blue-200 absolute -top-2 -left-1 font-serif">&ldquo;</span>
               <p className="pl-6">
                 I felt calm and cared for from the first step inside. The doctor took time to explain everything clearly and the whole process was very smooth and professional.
               </p>
@@ -122,7 +122,7 @@ const PatientReview: React.FC = () => {
 
             {/* Review Text */}
             <blockquote className="text-slate-700 text-base leading-relaxed mb-8 relative">
-              <span className="text-4xl text-blue-200 absolute -top-2 -left-1 font-serif">"</span>
+              <span className="text-4xl text-blue-200 absolute -top-2 -left-1 font-serif">&ldquo;</span>
               <p className="pl-6">
                 Outstanding service and care. The staff was incredibly professional and made me feel comfortable throughout my entire visit. Highly recommend to anyone!
               </p>
@@ -183,7 +183,7 @@ const PatientReview: React.FC = () => {
 
             {/* Review Text */}
             <blockquote className="text-slate-700 text-base leading-relaxed mb-8 relative">
-              <span className="text-4xl text-blue-200 absolute -top-2 -left-1 font-serif">"</span>
+              <span className="text-4xl text-blue-200 absolute -top-2 -left-1 font-serif">&ldquo;</span>
               <p className="pl-6">
                 Great facility with friendly staff. The appointment was on time and the treatment was effective. Only minor issue was parking, but overall a positive experience.
               </p>

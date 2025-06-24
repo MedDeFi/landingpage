@@ -4,7 +4,6 @@ import {
   MapPin, 
   Shield, 
   Heart, 
-  Users, 
   Plus,
   CheckCircle,
   Plane,

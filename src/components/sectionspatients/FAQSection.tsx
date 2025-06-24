@@ -1,8 +1,8 @@
 "use client";
 
 import React from 'react';
-import { AnimatedSection } from '@/components/sections/AnimatedSection';
-import { FAQItem } from '@/components/ui/FAQItem';
+import { AnimatedSection } from '@/components/sectionspatients/AnimatedSection';
+import { FAQItem } from '@/components/uipatients/FAQItem';
 import { faqsData } from '@/lib/data';
 
 // Ensure the "export" keyword is here to make the component importable

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { HeroTitle, HeroStats, HeroImage, HeroWaitlistButton } from '../ui/HeroSectionParts';
-import { WaitlistModal } from '../ui/WaitlistModal';
+import { HeroTitle, HeroStats, HeroImage, HeroWaitlistButton } from '../uipatients/HeroSectionParts';
+import { WaitlistModal } from '../uipatients/WaitlistModal';
 
-const HeroSectionUnified = () => {
+const HeroSectionDoctor = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
@@ -60,4 +60,4 @@ const HeroSectionUnified = () => {
   );
 };
 
-export default HeroSectionUnified; 
+export default HeroSectionDoctor; 

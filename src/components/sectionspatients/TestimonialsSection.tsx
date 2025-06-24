@@ -1,6 +1,6 @@
 import React from 'react';
 import { AnimatedSection } from './AnimatedSection';
-import { TestimonialCard } from '../ui/TestimonialCard';
+import { TestimonialCard } from '../uipatients/TestimonialCard';
 import { testimonialsData } from '@/lib/data';
 
 export const TestimonialsSection = () => (

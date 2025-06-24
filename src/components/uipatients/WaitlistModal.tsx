@@ -48,8 +48,8 @@ export const WaitlistModal = ({ isOpen, onClose }: WaitlistModalProps) => {
                       <div className="text-green-600 bg-green-100 rounded-full w-16 h-16 mx-auto flex items-center justify-center mb-4 ring-4 ring-green-100">
                          <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
                       </div>
-                      <h2 className="text-2xl font-bold text-gray-900 mb-2">You're on the list!</h2>
-                      <p className="text-gray-600">We'll let you know when we launch. Thanks for being an early believer.</p>
+                      <h2 className="text-2xl font-bold text-gray-900 mb-2">You&apos;re on the list!</h2>
+                      <p className="text-gray-600">We&apos;ll let you know when we launch. Thanks for being an early believer.</p>
                   </div>
               ) : (
                   <>

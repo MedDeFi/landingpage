@@ -1,6 +1,6 @@
 import React from 'react';
-import { StatCard } from './StatCard';
-import { WaitlistModal } from './WaitlistModal';
+import { StatCard } from '@/components/uipatients/StatCard';
+import { WaitlistModal } from '@/components/uipatients/WaitlistModal';
 
 export const HeroTitle = () => (
   <>
