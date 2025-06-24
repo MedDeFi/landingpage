@@ -32,12 +32,12 @@ export const WaitlistModal = ({ isOpen, onClose }: WaitlistModalProps) => {
   
   return (
       <div 
-        className={`absolute inset-0 z-50 transition-colors duration-300 ${isOpen ? 'bg-black/40 backdrop-blur-sm' : 'bg-transparent pointer-events-none'}`}
+        className={`fixed inset-0 z-50 transition-colors duration-300 ${isOpen ? 'bg-black/40 backdrop-blur-sm' : 'bg-transparent pointer-events-none'}`}
         onClick={onClose}
       >
           <div 
               onClick={(e) => e.stopPropagation()}
-              className={`absolute bottom-0 w-full bg-gray-100 backdrop-blur-2xl rounded-t-[2rem] p-6 shadow-2xl flex-1 items-center justify-center transition-transform duration-300 ease-out ${isVisible ? 'translate-y-0' : 'translate-y-full'}`}
+              className={`fixed bottom-0 w-full bg-gray-100 backdrop-blur-2xl rounded-t-[2rem] p-6 shadow-2xl flex-1 items-center justify-center transition-transform duration-300 ease-out ${isVisible ? 'translate-y-0' : 'translate-y-full'}`}
           >
               <div className="w-10 h-1.5 bg-gray-300 rounded-full mx-auto mb-4"></div>
               <div className="w-full flex justify-center items-center mb-4">
