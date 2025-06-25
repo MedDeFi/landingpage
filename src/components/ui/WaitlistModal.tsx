@@ -1,5 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
+import { addWaitlist } from '../forms/Waitlist/api/insertWaitlist';
+import { toast, Toaster } from 'react-hot-toast';
 
 interface WaitlistModalProps {
   isOpen: boolean;
@@ -23,11 +25,28 @@ export const WaitlistModal = ({ isOpen, onClose, position }: WaitlistModalProps)
       }
   }, [isOpen]);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       if (email) {
           console.log("Waitlist submission:", email);
           setIsSubmitted(true);
+
+          try {
+                const result = await addWaitlist({
+                  email: email,
+                })
+          
+                if (!result.success) {
+                  throw new Error('Failed to submit form')
+                }
+                toast.success('Added to waitlist!');
+              } catch (error) {
+                toast.error('Something went wrong. Please try again.');
+                console.error('Error submitting form:', error);
+              } finally {
+                // Reset form after submission
+                setTimeout(() => setIsSubmitted(false), 3000);
+              }
       }
   };
   
@@ -36,6 +55,7 @@ export const WaitlistModal = ({ isOpen, onClose, position }: WaitlistModalProps)
         className={`fixed inset-0 z-50 transition-colors duration-300 ${isOpen ? 'bg-black/40 backdrop-blur-sm' : 'bg-transparent pointer-events-none'}`}
         onClick={onClose}
       >
+      <Toaster/>
           <div 
               onClick={(e) => e.stopPropagation()}
               style={position ? {
