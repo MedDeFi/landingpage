@@ -15,39 +15,21 @@ const Navbar = () => {
   );
 
   return (
-    <nav className="absolute top-2 sm:top-4 left-0 right-0 z-50 flex items-center justify-between rounded-3xl m-2 sm:m-4 px-2 sm:px-4 md:px-8">
+    <nav className="absolute top-4 lg:top-8 left-0 lg:left-8 right-0 z-50 flex items-center justify-between rounded-3xl m-4 px-4 md:px-0">
       {/* Left Section - Logo and Desktop Navigation */}
-      <div className="flex items-center space-x-2 sm:space-x-4">
+      <div className="flex items-center space-x-4">
         <MedDeFiLogoType/>
+
         {/* Desktop Navigation Links (hidden on mobile) */}
-        <div className="hidden md:flex items-center space-x-4 sm:space-x-8 ml-2 sm:ml-8">
-          <ul className="flex space-x-4 sm:space-x-8 text-gray-800 text-sm sm:text-base">
-            <li><a href="#" className="px-2 sm:px-4 py-1 sm:py-2 rounded-full bg-white text-gray-800 hover:bg-gray-100 transition-colors duration-200">About us</a></li>
-            <li><a href="#" className="px-2 sm:px-4 py-1 sm:py-2 rounded-full bg-white text-gray-800 hover:bg-gray-100 transition-colors duration-200">Services</a></li>
-            <li><a href="#" className="px-2 sm:px-4 py-1 sm:py-2 rounded-full bg-white text-gray-800 hover:bg-gray-100 transition-colors duration-200">Doctors</a></li>
-            <li><a href="#" className="px-2 sm:px-4 py-1 sm:py-2 rounded-full bg-white text-gray-800 hover:bg-gray-100 transition-colors duration-200">Contact</a></li>
-          </ul>
+        <div className="hidden md:flex items-center space-x-8 ml-8">
+          
         </div>
       </div>
+
       {/* Right Section - Mobile Phone, Mobile Hamburger, Desktop Login */}
-      <div className="flex items-center space-x-2 sm:space-x-4 pr-2 sm:pr-4">
-        {/* Mobile Hamburger Icon */}
-        <button onClick={() => setIsOpen(!isOpen)} className="p-2 sm:p-3 bg-white rounded-full text-gray-800 hover:bg-gray-100 transition-colors duration-200 md:hidden">
-            <FiMenu className="h-4 w-4" />
-        </button>
-        {/* Desktop Login Button removed */}
+      <div className="flex items-center space-x-4 pr-4">
+      
       </div>
-      {/* Mobile Nav Links Overlay */}
-      {isOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-lg rounded-b-lg p-2 sm:p-4">
-          <ul className="flex flex-col space-y-1 sm:space-y-2 text-gray-800 text-base">
-            <li><a href="#" className="px-2 sm:px-4 py-2 rounded-full hover:bg-gray-100 transition-colors duration-200">About us</a></li>
-            <li><a href="#" className="px-2 sm:px-4 py-2 rounded-full hover:bg-gray-100 transition-colors duration-200">Services</a></li>
-            <li><a href="#" className="px-2 sm:px-4 py-2 rounded-full hover:bg-gray-100 transition-colors duration-200">Doctors</a></li>
-            <li><a href="#" className="px-2 sm:px-4 py-2 rounded-full hover:bg-gray-100 transition-colors duration-200">Contact</a></li>
-          </ul>
-        </div>
-      )}
     </nav>
   );
 };

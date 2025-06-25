@@ -3,18 +3,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import NavBar from '@/components/layout/NavBar';
 import { WaitlistModal } from '@/components/uishared/WaitlistModal';
-import { FeaturesSection } from '@/components/sectionspatients/FeaturesSection';
+import { FeatureSectionDoctor } from '@/components/sectionsdoctor/FeatureSectionDoctor';
 import { HowItWorksSection } from '@/components/sectionspatients/HowItWorksSection';
 import { PoweredByAISection } from '@/components/sectionspatients/PoweredByAISection';
 import { TestimonialsSection } from '@/components/sectionspatients/TestimonialsSection';
 import { PartnersSection } from '@/components/sectionspatients/PartnersSection';
 import { FAQSection } from '@/components/sectionspatients/FAQSection';
 import { CtaSection } from '@/components/sectionspatients/CtaSection';
-import HeroSectionUnified from '@/components/sectionsdoctor/HeroSectionDoctor';
-
-
-
-
+import HeroSectionDoctor from '@/components/sectionsdoctor/HeroSectionDoctor';
 
 export default function LandingPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -56,8 +52,8 @@ export default function LandingPage() {
             </header>
 
             {/* Composing the page with Section Components */}
-            <HeroSectionUnified />
-            <FeaturesSection />
+            <HeroSectionDoctor />
+            <FeatureSectionDoctor />
             <HowItWorksSection />
             <PoweredByAISection />
             <TestimonialsSection />
