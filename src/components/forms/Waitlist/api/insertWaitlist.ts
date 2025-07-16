@@ -40,7 +40,7 @@ export async function addWaitlist(formData: { email: string }) {
 
     console.log('Server Action: Email enviado con éxito')
 
-    // 3. Revalidar ruta
+    // Revalidate the patients page to refresh the data
     revalidatePath('/patients')
 
     return { success: true }
