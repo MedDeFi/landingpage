@@ -27,7 +27,7 @@ export async function addWaitlist(formData: { email: string }) {
 
 
     const htmlContent = waitlistEmailTemplate({
-      logoUrl: process.env.NEXT_PUBLIC_LOGO_URL!,
+      logoUrl: process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_LOGO_URL!,
       websiteUrl: 'https://x.com/MedDeFi',
     });
 
