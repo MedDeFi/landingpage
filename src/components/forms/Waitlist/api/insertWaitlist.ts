@@ -38,7 +38,7 @@ export async function addWaitlist(formData: { email: string }) {
       html: htmlContent,
     })
 
-    console.log('Server Action: Email enviado con éxito')
+    console.log('Server Action: Email sent successful')
 
     // Revalidate the patients page to refresh the data
     revalidatePath('/patients')
