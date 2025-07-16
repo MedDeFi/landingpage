@@ -13,13 +13,13 @@ export async function addWaitlist(formData: { email: string }) {
 
     console.log('Server Action: Inserting data:', formData)
 
-    // 1. Insertar en Supabase
+    // Insert data into the waitlist table
     const { data, error } = await supabase
       .from('waitlist')
       .insert([{ email: formData.email }])
 
     if (error) {
-      console.error('Server Action: Error inserting into waitlist:', error)
+      console.error('Server Action: Error inserting into patients_waitlist table:', error)
       throw new Error(error.message)
     }
 
@@ -46,6 +46,6 @@ export async function addWaitlist(formData: { email: string }) {
     return { success: true }
   } catch (error) {
     console.error('Server Action: Unexpected error:', error)
-    throw new Error('Ocurrió un error inesperado')
+    throw new Error('An unexpected error occurred')
   }
 }
