@@ -13,7 +13,7 @@ export const TestimonialCard = ({ quote, name, role, avatar }: TestimonialCardPr
       <p className="text-gray-700 text-base">&ldquo;{quote}&rdquo;</p>
       <div className="flex items-center mt-4">
           <Image
-            src={avatar}
+            src={avatar || '/avatars/av.svg'}
             alt={name}
             width={40}
             height={40}
