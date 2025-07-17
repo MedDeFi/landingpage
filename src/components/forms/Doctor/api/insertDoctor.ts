@@ -14,6 +14,7 @@ export async function addWaitlistDoctor(formData: {
     console.log('Server Action: Inserting data:', formData)
     
     // Insert data into the waitlist table
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { data, error } = await supabase
       .from('doctor_waitlist')
       .insert([

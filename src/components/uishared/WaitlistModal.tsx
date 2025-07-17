@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { addWaitlist } from '@/components/forms/Waitlist/api/insertWaitlist';
 import { toast, Toaster } from 'react-hot-toast';
 
@@ -60,7 +61,7 @@ export const WaitlistModal = ({ isOpen, onClose }: WaitlistModalProps) => {
           >
               <div className="w-10 h-1.5 bg-gray-300 rounded-full mx-auto mb-4"></div>
               <div className="w-full flex justify-center items-center mb-4">
-                <img src="/MedDeFiLogotype.svg" alt="Logotype" className="w-32 h-auto" />
+                <Image src="/MedDeFiLogotype.svg" alt="Logotype" width={128} height={40} className="w-32 h-auto" />
               </div>
               {isSubmitted ? (
                   <div className="text-center py-8">

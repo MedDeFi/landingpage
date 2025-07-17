@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { Heart, CheckCircle, DollarSign, MapPin, Clock, Shield, Award, Users, Plane, Star } from 'lucide-react';
-import { ChangeEvent } from 'react';  
 
 const PatientPath = () => {
   const benefits = [
@@ -142,7 +141,7 @@ const PatientPath = () => {
               What Our Patients Say
             </h2>
             <p className="text-lg text-gray-600">
-              Real stories from patients who've experienced our care
+              Real stories from patients who&apos;ve experienced our care
             </p>
           </div>
 
@@ -154,7 +153,7 @@ const PatientPath = () => {
                     <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
                   ))}
                 </div>
-                <p className="text-gray-700 mb-4 italic">"{testimonial.text}"</p>
+                <p className="text-gray-700 mb-4 italic">&quot;{testimonial.text}&quot;</p>
                 <div className="border-t border-blue-200 pt-4">
                   <div className="font-semibold text-gray-900">{testimonial.name}</div>
                   <div className="text-sm text-gray-600">{testimonial.procedure}</div>

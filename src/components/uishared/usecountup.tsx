@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const useCountUp = (end: number, duration: number = 2000) => {
     const ref = React.useRef<HTMLSpanElement>(null);
     React.useEffect(() => {

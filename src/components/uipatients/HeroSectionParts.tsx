@@ -1,6 +1,5 @@
 import React from 'react';
 import { StatCard } from '@/components/uipatients/StatCard';
-import { WaitlistModal } from '@/components/uishared/WaitlistModal';
 
 export const HeroTitle = () => (
   <>
@@ -27,6 +26,7 @@ export const HeroStats = () => (
 );
 
 export const HeroImage = ({ className = '', alt = 'Nurse' }: { className?: string; alt?: string }) => (
+  // eslint-disable-next-line @next/next/no-img-element
   <img src="/nurse2.png" alt={alt} className={`object-contain animate-fade-in-up ${className}`} />
 );
 
