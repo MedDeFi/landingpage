@@ -6,6 +6,6 @@ export const metadata: Metadata = {
   description: "Join the MedDeFi waitlist for doctors.",
 };
 
-export default function DoctorPage() {
+export default function DoctorsPage() {
   return <DoctorClientPage />;
 }
