@@ -3,9 +3,10 @@
 import { getSupabaseClient } from '@/lib/supabaseClient'
 import { revalidatePath } from 'next/cache'
 import { Resend } from 'resend'
-import { waitlistEmailTemplate } from '@/emails/templates/waitlist-confirmation';
+import { waitlistEmailTemplate } from '@/emails/templates/waitlist-confirmation'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+const resendApiKey = process.env.RESEND_API_KEY
+const resend = resendApiKey ? new Resend(resendApiKey) : null
 
 export async function addWaitlist(formData: { email: string }) {
   try {
@@ -13,40 +14,44 @@ export async function addWaitlist(formData: { email: string }) {
 
     console.log('Server Action: Inserting data:', formData)
 
-    // Insert data into the waitlist table
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { data, error } = await supabase
+    const { error: insertError } = await supabase
       .from('waitlist')
       .insert([{ email: formData.email }])
 
-    if (error) {
-      console.error('Server Action: Error inserting into patients_waitlist table:', error)
-      throw new Error(error.message)
+    if (insertError) {
+      console.error('Server Action: Supabase insert error:', insertError)
+      return { success: false, message: 'Error saving email to waitlist.' }
     }
 
     console.log('Server Action: Insert successful')
 
+    if (resend) {
+      const htmlContent = waitlistEmailTemplate({
+        logoUrl: process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_LOGO_URL || '',
+        websiteUrl: 'https://x.com/MedDeFi',
+      })
 
-    const htmlContent = waitlistEmailTemplate({
-      logoUrl: process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_LOGO_URL!,
-      websiteUrl: 'https://x.com/MedDeFi',
-    });
+      try {
+        await resend.emails.send({
+          from: 'MedDefi <onboarding@resend.dev>',
+          to: formData.email,
+          subject: 'You’re on the MedDefi waitlist! 🎉',
+          html: htmlContent,
+        })
 
-    await resend.emails.send({
-      from: 'MedDefi <onboarding@resend.dev>', // domain should be verified in Resend
-      to: formData.email,
-      subject: 'You’re on the MedDefi waitlist! 🎉',
-      html: htmlContent,
-    })
+        console.log('Server Action: Email sent successfully')
+      } catch (emailError) {
+        console.error('Server Action: Resend email error:', emailError)
+      }
+    } else {
+      console.warn('Server Action: RESEND_API_KEY not set, skipping email')
+    }
 
-    console.log('Server Action: Email sent successful')
-
-    // Revalidate the patients page to refresh the data
     revalidatePath('/patients')
 
-    return { success: true }
+    return { success: true, message: 'Successfully added to the waitlist.' }
   } catch (error) {
     console.error('Server Action: Unexpected error:', error)
-    throw new Error('An unexpected error occurred')
+    return { success: false, message: 'Unexpected error occurred.' }
   }
 }
