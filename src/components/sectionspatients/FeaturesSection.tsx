@@ -1,7 +1,7 @@
 import React from 'react';
-import { AnimatedSection } from '@/components/sectionspatients/AnimatedSection';        
+import { AnimatedSection } from '../uishared/AnimatedSection';   
 import { FeatureCard } from '@/components/uipatients/FeatureCard';
-import { featuresData } from '@/lib/data';  
+import { featuresData } from '@/lib/datapatients';  
 
 export const FeaturesSection = () => (
   <AnimatedSection className="relative pt-28 pb-20 px-6 bg-gray-200 shadow-xl backdrop-blur-2xl rounded-b-3xl"> 

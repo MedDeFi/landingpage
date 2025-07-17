@@ -1,10 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
-import { FiMenu, FiPhone, FiUser } from 'react-icons/fi';
+
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+
   const MedDeFiLogoType = () => (
     <div className="flex items-center space-x-2">
       <svg className="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 20 20">

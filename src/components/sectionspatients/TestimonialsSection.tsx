@@ -1,7 +1,7 @@
 import React from 'react';
-import { AnimatedSection } from './AnimatedSection';
+import { AnimatedSection } from '../uishared/AnimatedSection';
 import { TestimonialCard } from '../uipatients/TestimonialCard';
-import { testimonialsData } from '@/lib/data';
+import { testimonialsData } from '@/lib/datapatients';
 
 export const TestimonialsSection = () => (
   <AnimatedSection className="py-20 bg-gray-50 mb-16 mt-16 backdrop-blur-2xl rounded-3xl">

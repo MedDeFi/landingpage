@@ -1,5 +1,5 @@
 import React from 'react';
-import { AnimatedSection } from './AnimatedSection';
+import { AnimatedSection } from '../uishared/AnimatedSection';
 import { PartnerLogo } from '../uipatients/PartnerLogo';
 
 export const PartnersSection = () => (

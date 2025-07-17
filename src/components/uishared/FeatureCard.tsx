@@ -26,14 +26,14 @@ export const FeatureCard = ({ icon, title, description }: FeatureCardProps) => {
   }, []);
 
   return (
-    <div ref={tiltRef} className="feature-card group bg-white/50 backdrop-blur-2xl rounded-3xl p-5 flex items-start space-x-4 border border-white/80 shadow-lg hover:shadow-xl transition-all duration-300">
-      <div className="bg-blue-100 text-blue-600 rounded-lg p-3 transition-all duration-300 group-hover:bg-blue-500 group-hover:text-white group-hover:scale-110 shadow-inner-sm">
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+    <div ref={tiltRef} className="feature-card group bg-white/50 backdrop-blur-2xl rounded-3xl px-4 flex flex-row items-center space-x-4 h-full border border-white/80 shadow-lg">
+      <div className="bg-blue-100 text-blue-600 rounded-lg p-4 flex group-hover:bg-blue-500 group-hover:text-white shadow-inner-sm">
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
           <path strokeLinecap="round" strokeLinejoin="round" d={icon} />
         </svg>
       </div>
       <div>
-        <h3 className="font-semibold text-gray-900">{title}</h3>
+        <h3 className="text-2xl font-semibold text-gray-900">{title}</h3>
         <p className="text-gray-600 text-sm mt-1">{description}</p>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import React from 'react';
-import { AnimatedSection } from './AnimatedSection';
-import { HowItWorksStep } from '../uipatients/HowItWorksStep';
+import { AnimatedSection } from '../uishared/AnimatedSection';
+import { HowItWorksStep } from '../uishared/HowItWorksStep';
 
 export const HowItWorksSection = () => (
   <AnimatedSection className="py-20 -mt-12 pt-32 px-6 bg-gray-100 shadow-xl mb-24 backdrop-blur-2xl rounded-b-3xl z-20">

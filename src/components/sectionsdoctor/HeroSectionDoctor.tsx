@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { HeroTitle, HeroStats, HeroImage, HeroWaitlistButton } from '../uipatients/HeroSectionParts';
+import { HeroTitleDoc, HeroStats, HeroImage, HeroWaitlistButton } from '../uishared/HeroSectionParts';
 import { WaitlistModal } from '../uipatients/WaitlistModal';
 
 const HeroSectionDoctor = () => {
@@ -8,13 +8,13 @@ const HeroSectionDoctor = () => {
   return (
     <>
       {/* Desktop (large screens) */}
-      <div className="hidden lg:block z-50 px-4 pt-4">
+      <div className="hidden lg:block z-40 px-4 pt-4">
         <div className="relative h-[95vh] bg-white overflow-hidden rounded-3xl w-full items-stretch">
           {/* Blue background on the right, containing image and patterns */}
           <div className="absolute inset-y-0 right-0 lg:w-1/2 items-end mr-4 mt-12 mb-12 justify-center bottom-0 bg-gradient-to-t from-blue-600 to-white rounded-full overflow-hidden">
             {/* Main Doctor Image */}
             <div className="absolute bottom-0 w-full flex justify-center items-end z-10">
-              <HeroImage className="h-[82vh]" alt="Doctor" />
+              <HeroImage className="h-[75vh]" alt="Doctor" />
             </div>
             {/* Background pattern on blue section */}
             <div className="absolute inset-0 z-0">
@@ -24,9 +24,9 @@ const HeroSectionDoctor = () => {
           </div>
           <div className="relative flex flex-col md:flex-row min-h-screen rounded-3xl">
             {/* Left Section - White Background */}
-            <div className="w-full md:w-1/2 flex flex-col p-8 md:p-8 text-gray-800 relative justify-start mt-28 rounded-3xl">
+            <div className="w-full md:w-1/2 flex flex-col p-8 md:ml-8 text-gray-800 relative justify-center items-center md:justify-start mt-28 rounded-3xl">
               <div className="item-evenly">
-                <HeroTitle />
+                <HeroTitleDoc />
                 <HeroStats />
                 <div className="flex mt-4">
                   <HeroWaitlistButton onClick={() => setIsModalOpen(true)} />
@@ -40,12 +40,47 @@ const HeroSectionDoctor = () => {
           </div>
         </div>
       </div>
-      {/* Mobile/Tablet (small/medium screens) */}
-      <div className="lg:hidden">
+
+      {/* Tablet (medium screens) */}
+      <div className="hidden md:block lg:hidden z-40 px-4 pt-4">
+        <div className="relative h-[90vh] bg-white overflow-hidden rounded-3xl w-full items-stretch">
+          {/* Blue background on the right, containing image and patterns */}
+          <div className="absolute inset-y-0 right-0 w-1/2 items-end mr-4 mt-8 mb-8 justify-center bottom-0 bg-gradient-to-t from-blue-600 to-white rounded-full overflow-hidden">
+            {/* Main Doctor Image */}
+            <div className="absolute bottom-0 w-full flex justify-center items-end z-10">
+              <HeroImage className="h-[65vh]" alt="Doctor" />
+            </div>
+            {/* Background pattern on blue section */}
+            <div className="absolute inset-0 z-0">
+              <div className="absolute -right-1/4 top-1/2 -translate-y-1/2 w-3/4 h-full bg-blue-500 opacity-10 transform rotate-12 rounded-full"></div>
+              <div className="absolute -right-1/2 top-1/4 -translate-y-1/2 w-full h-full bg-blue-400 opacity-10 transform -rotate-12 rounded-full"></div>
+            </div>
+          </div>
+          <div className="relative flex flex-col min-h-screen rounded-3xl">
+            {/* Left Section - White Background */}
+            <div className="w-1/2 flex flex-col p-6 ml-6 text-gray-800 relative justify-center items-center justify-start mt-20 rounded-3xl">
+              <div className="item-evenly">
+                <HeroTitleDoc />
+                <HeroStats />
+                <div className="flex mt-4">
+                  <HeroWaitlistButton onClick={() => setIsModalOpen(true)} />
+                </div>
+              </div>
+            </div>
+            {/* Waitlist Modal */}
+            <div className="absolute inset-0 mb-16">
+              <WaitlistModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile (small screens) */}
+      <div className="md:hidden">
         <div className="relative text-gray-800 bg-gray-100 pb-32 overflow-hidden shadow-xl backdrop-blur-xl rounded-b-3xl z-40 flex-1">
           <div className="absolute inset-0 bg-gradient-to-b from-blue-50 via-white-100 to-gray-100 opacity-50"></div>
           <div className="relative pt-32">
-            <HeroTitle />
+            <HeroTitleDoc />
           </div>
           <div className="relative mt-4">
             <div className="w-full h-96 items-center justify-center flex">

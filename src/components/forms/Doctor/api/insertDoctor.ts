@@ -14,7 +14,7 @@ export async function addWaitlistDoctor(formData: {
     console.log('Server Action: Inserting data:', formData)
     
     // Insert data into the waitlist table
-    const { data, error } = await supabase
+    const { error } = await supabase
       .from('doctor_waitlist')
       .insert([
         {
