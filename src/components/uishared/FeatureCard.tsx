@@ -9,7 +9,6 @@ interface FeatureCardProps {
 }
 
 export const FeatureCard = ({ icon, title, description }: FeatureCardProps) => {
-  const cardRef = useRef<HTMLDivElement>(null);
   const tiltRef = useRef<HTMLDivElement>(null);
   useTilt(tiltRef);
   

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { FiMenu, FiPhone, FiUser } from 'react-icons/fi';
+import { FiMenu, FiUser } from 'react-icons/fi';
 
 const NavBarbig = () => {
   const [isOpen, setIsOpen] = useState(false);
