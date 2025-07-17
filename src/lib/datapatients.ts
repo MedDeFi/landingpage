@@ -17,7 +17,7 @@ export const featuresData = [
 ];
 
 export const testimonialsData = [
-    { quote: "This is a game-changer. I got a diagnosis and found a specialist in record time!", name: "Sarah J.", role: "Early Adopter", avatar: "https://placehold.co/100x100/e2e8f0/4a5568?text=SJ" },
+    { quote: "This is a game-changer. I got a diagnosis and found a specialist in record time!", name: "Sarah J.", role: "Early Adopter", avatar: "/avatars/sj.svg" },
     { quote: "Finally, a healthcare app that's actually easy to use. The AI was surprisingly accurate.", name: "Michael B.", role: "Beta Tester", avatar: "https://placehold.co/100x100/fefcbf/4a5568?text=MB" },
     { quote: "As a busy professional, getting quick medical advice is essential. This is exactly what I needed.", name: "Emily K.", role: "Working Mom", avatar: "https://placehold.co/100x100/dbeafe/4a5568?text=EK" },
 ];
