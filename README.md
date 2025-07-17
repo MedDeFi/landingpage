@@ -27,3 +27,11 @@ Create **.env.local** file
 NEXT_PUBLIC_SUPABASE_URL=<SUPABASE_URL>
 NEXT_PUBLIC_SUPABASE_ANON_KEY=<SUPAVASE_ANON_KEY>
 ```
+
+## Resend - Send email functionality
+
+Add in **.env.local** file the following entries
+```text
+RESEND_API_KEY=<RESEND_API_KEY>
+NEXT_PUBLIC_EMAIL_TEMPLATE_LOGO_URL=<LOGO_URL_FOR_EMAIL_TEMPLATE>
+```
