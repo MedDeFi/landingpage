@@ -1,6 +1,8 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { addWaitlist } from '@/components/forms/Waitlist/api/insertWaitlist';
+import { toast, Toaster } from 'react-hot-toast';
 
 interface WaitlistModalProps {
   isOpen: boolean;
@@ -23,11 +25,30 @@ export const WaitlistModal = ({ isOpen, onClose }: WaitlistModalProps) => {
       }
   }, [isOpen]);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       if (email) {
           console.log("Waitlist submission:", email);
-          setIsSubmitted(true);
+          console.log("NANINI");
+          try {
+                console.log("Try ...");
+                const result = await addWaitlist({
+                email: email,
+                })
+        
+                if (!result.success) {
+                throw new Error('Failed to submit form')
+                }
+                toast.success('Added to waitlist!');
+                setIsSubmitted(true);
+            } catch (error) {
+                toast.error('Something went wrong. Please try again.');
+                console.error('Error submitting form:', error);
+            } finally {
+                // Reset form after submission
+                setTimeout(() => setIsSubmitted(false), 3000);
+            }
+            
       }
   };
   
@@ -35,7 +56,7 @@ export const WaitlistModal = ({ isOpen, onClose }: WaitlistModalProps) => {
       <div 
         className={`fixed inset-0 z-50 transition-colors duration-300 ${isOpen ? 'bg-black/40 backdrop-blur-sm' : 'bg-transparent pointer-events-none'}`}
         onClick={onClose}
-      >
+      >   <Toaster/>
           <div 
               onClick={(e) => e.stopPropagation()}
               className={`fixed bottom-0 w-full bg-gray-100 backdrop-blur-2xl rounded-t-[2rem] p-6 shadow-2xl flex-1 items-center justify-center transition-transform duration-300 ease-out ${isVisible ? 'translate-y-0' : 'translate-y-full'}`}
