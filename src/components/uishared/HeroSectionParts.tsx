@@ -32,7 +32,7 @@ export const HeroStats = () => (
 );
 
 export const HeroImage = ({ className = '', alt = 'Nurse' }: { className?: string; alt?: string }) => (
-  <Image src="/nurse2.png" alt={alt} className={`object-contain animate-fade-in-up ${className}`} width={400} height={400} />
+  <Image src="/nurse2.webp" alt={alt} className={`object-contain animate-fade-in-up ${className}`} width={400} height={400} />
 );
 
 export const HeroWaitlistButton: React.FC<{ onClick: () => void }> = ({ onClick }) => (
