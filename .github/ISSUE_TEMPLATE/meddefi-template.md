@@ -55,3 +55,6 @@ If this is sensitive, email **meddefi@gmail.com**.
 
 ---
 **Building decentralized healthcare together 🚀**
+
+
+📖 **Reminder:** Before submitting a PR, please read our [Git & PR Guide](https://github.com/MedDeFi/landingpage/issues/19).
