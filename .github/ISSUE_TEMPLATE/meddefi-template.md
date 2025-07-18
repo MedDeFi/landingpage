@@ -1,7 +1,7 @@
 ---
 name: 🩺 MedDeFi Issue
 about: Report a bug, request a feature, or suggest improvements.
-title: "[MedDeFi] "
+title: "FE: type-the-title"
 labels: ''
 assignees: ''
 
