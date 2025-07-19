@@ -126,6 +126,31 @@
   display: none;
   scroll-behavior: smooth;
 }
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  background: transparent;
+}
+
+::-webkit-scrollbar-track {
+  width: 0;
+  height: 0;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 0;
+  height: 0;
+  background: transparent;
+  
+}
+
+::-webkit-scrollbar-thumb:hover {
+  width: 0;
+  height: 0;
+  background: transparent;
+} 
 
 
 :root {

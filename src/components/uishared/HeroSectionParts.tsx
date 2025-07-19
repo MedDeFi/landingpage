@@ -5,18 +5,18 @@ import Image from 'next/image';
 
 export const HeroTitleDoc = () => (
   <>
-    <h1 className="text-6xl md:text-[68px] lg:text-[110px] text-black font-semibold mb-1 animate-fade-in text-center md:text-left lg:text-left">
+    <h1 className="text-7xl md:text-[68px] lg:text-[110px] text-black font-semibold mb-1 animate-fade-in text-center md:text-left lg:text-left">
       Healthcare
     </h1>
-    <h1 className="text-6xl md:text-[72px] lg:text-[116px] text-black !font-semibold mb-1 animate-fade-in text-center md:text-left lg:text-left">
+    <h1 className="text-7xl md:text-[72px] lg:text-[116px] text-black !font-semibold mb-1 animate-fade-in text-center md:text-left lg:text-left">
       Re
       <span className='font-semibold'>
         <AuroraText>defi</AuroraText>
       </span>
       ned
     </h1>
-    <p className="hidden md:block lg:block mt-4 mb-8 text-lg text-gray-600 animate-fade-in-up ml-0 md:ml-4 text-center md:text-left">
-      We treat not only symptoms, <span className='font-semibold'>we solve the problem.</span>
+    <p className="hidden md:block lg:block mt-4 mb-8 text-lg text-gray-600 animate-fade-in-up ml-0 md:ml-4 text-left pr-20 md:text-left">
+    We are building a new era of medical tourism where <span className='font-semibold'>privacy and speed are non-negotiable.</span> 
     </p>
   </>
 );
@@ -32,7 +32,13 @@ export const HeroStats = () => (
 );
 
 export const HeroImage = ({ className = '', alt = 'Nurse' }: { className?: string; alt?: string }) => (
-  <Image src="/nurse2.png" alt={alt} className={`object-contain animate-fade-in-up ${className}`} width={400} height={400} />
+  <Image
+    src="/nurse2.webp"
+    alt={alt}
+    className={`object-contain animate-fade-in-up ${className}`}
+    width={800}
+    height={800}
+  />
 );
 
 export const HeroWaitlistButton: React.FC<{ onClick: () => void }> = ({ onClick }) => (
