@@ -15,7 +15,7 @@ export const CtaSection = React.forwardRef<HTMLDivElement, CtaSectionProps>(
     return (
       <AnimatedSection ref={ref} className="py-20 px-6 mx-4 mb-16 mt-16 text-center rounded-3xl bg-gray-100 z-60">
         <h2 className="text-4xl font-bold text-gray-900">Don&apos;t Miss Out</h2>
-        <p className="text-gray-600 mt-3 mb-8">Join the waitlist for exclusive early access and be a part of the healthcare revolution.</p>
+        <p className="text-gray-600 mt-3 mb-8">Join the waitlist for exclusive early access and be a part of the medical tourism revolution.</p>
         <button 
           onClick={onClaimSpot} 
           className="cta-button bg-blue-600 text-white font-semibold py-4 px-10 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-100 transition-all duration-300"

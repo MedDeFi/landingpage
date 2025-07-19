@@ -5,8 +5,8 @@ import Image from 'next/image';
 
 export const HeroTitleDoc = () => (
   <>
-    <h1 className="text-6xl md:text-[68px] lg:text-[110px] text-black font-semibold mb-1 animate-fade-in text-center md:text-left lg:text-left">
-      Healthcare
+    <h1 className="text-5xl md:text-[60px] lg:text-[90px] text-black font-semibold mb-1 animate-fade-in text-center md:text-left lg:text-left">
+      Medical Tourism
     </h1>
     <h1 className="text-6xl md:text-[72px] lg:text-[116px] text-black !font-semibold mb-1 animate-fade-in text-center md:text-left lg:text-left">
       Re
@@ -16,18 +16,18 @@ export const HeroTitleDoc = () => (
       ned
     </h1>
     <p className="hidden md:block lg:block mt-4 mb-8 text-lg text-gray-600 animate-fade-in-up ml-0 md:ml-4 text-center md:text-left">
-      We treat not only symptoms, <span className='font-semibold'>we solve the problem.</span>
+      More Patients. More Income. No Extra Hours.
     </p>
   </>
 );
 
 export const HeroStats = () => (
   <div className="relative flex text-center justify-around items-center px-4 py-4 bg-white/60 backdrop-blur-xl rounded-2xl mx-4 md:mx-16 md:ml-4 lg:mt-12 shadow-lg animate-fade-in-up border border-white/80">
-    <StatCard value={350} label="Waitlist Members" />
+    <StatCard value={12} label="Waitlist Members" />
     <div className="w-px text-center h-12 bg-gray-300/70"></div>
-    <StatCard value={152} label="Healthcare Providers" />
+    <StatCard value={30} label="Healthcare Providers" />
     <div className="w-px h-12 bg-gray-300/70"></div>
-    <StatCard value={8} label="Supported Countries" suffix="+" />
+    <StatCard value={5} label="Supported Countries" suffix="+" />
   </div>
 );
 

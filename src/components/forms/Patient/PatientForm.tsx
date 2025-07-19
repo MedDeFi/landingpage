@@ -161,7 +161,7 @@ const PatientForm = () => {
                   onClick={handleSubmit}
                   className="w-full bg-white text-blue-600 hover:bg-blue-50 font-bold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center group"
                 >
-                  Join Waitlist - and get cheaper Healthcare
+                  Join Waitlist - and get cheaper Medical Tourism
                 </button>
 
     

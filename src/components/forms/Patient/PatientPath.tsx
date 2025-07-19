@@ -80,7 +80,7 @@ const PatientPath = () => {
           </div>
           
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
-            World-Class Healthcare at
+            World-Class Medical Tourism at
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-100">
               Affordable Prices
             </span>
