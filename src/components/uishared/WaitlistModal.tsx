@@ -59,8 +59,12 @@ export const WaitlistModal = ({ isOpen, onClose }: WaitlistModalProps) => {
       setTimeout(() => {
         onClose()
       }, 2000)
-    } catch (err: any) {
-      setError(err.message || "Something went wrong. Please try again.")
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message || "Something went wrong. Please try again.")
+      } else {
+        setError("Something went wrong. Please try again.")
+      }
     } finally {
       setIsSubmitting(false)
     }
