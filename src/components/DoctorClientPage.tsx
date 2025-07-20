@@ -55,7 +55,7 @@ export default function DoctorClientPage() {
     <div className="flex justify-center items-center bg-black min-h-screen">
       <div className="w-full bg-gray-50 shadow-2xl overflow-hidden relative">
         {/* The Scene and Modal remain at the top level */}
-        <div className="absolute inset-0 z-0">{/* <Scene /> */}</div>
+        <div className="absolute inset-0 !z-50">{/* <Scene /> */}</div>
         <WaitlistModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
 
 
@@ -73,7 +73,7 @@ export default function DoctorClientPage() {
         </div>
 
         {/* Sticky Footer CTA */}
-        <div className={`lg:hidden fixed bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-gray-100/90 via-gray-100/90 to-transparent z-50 transition-opacity duration-300 ${(isCtaVisible || isModalOpen) ? 'opacity-0' : 'opacity-100'}`}>
+        <div className={`lg:hidden fixed bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-gray-100/90 via-gray-100/90 to-transparent z-50 transition-opacity duration-300 ${(isCtaVisible || isModalOpen) ? 'opacity-0 pointer-events-none' : 'opacity-100 pointer-events-auto'}`}>
           <div>
             <button
               onClick={() => setIsModalOpen(true)}
