@@ -11,10 +11,10 @@ import Image from 'next/image';
 export const AcrossBorders = () => {
   return (
     <AnimatedSection className="flex flex-col items-center justify-center shadow-xl rounded-3xl relative bg-gradient-to-br from-white/50 via-blue-50 to-white/50 z-20 pb-8 lg-px-28 backdrop-blur-2xl sm:rounded-3xl md:rounded-3xl sm:-mt-16 md:mt-16 md:mx-4 px-4 md:px-4 lg:px-12">
-      <div className='flex flex-col-1 w-full mb-12 mt-12 px-8 '>
-      <div className='items-start justify-start w-full'>
-      <AuroraText className='text-7xl md:text-8xl font-semibold'> Healthcare</AuroraText>
-      <h2 className="text-5xl md:text-7xl font-semibold text-left text-gray-900">Across Borders</h2>
+      <div className='flex flex-col-1 w-full mb-12 mt-12 items-center md:items-start justify-center md:justify-start '>
+      <div className='w-full items-center justify-center md:items-start md:justify-start'>
+      <AuroraText className='text-7xl md:text-8xl items-center justify-center md:items-start md:justify-start font-semibold'> Healthcare</AuroraText>
+      <h2 className="text-5xl md:text-7xl font-semibold md:text-start text-center text-gray-900">Across Borders</h2>
       </div>
       
       </div>

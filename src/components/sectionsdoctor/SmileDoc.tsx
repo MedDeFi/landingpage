@@ -7,19 +7,19 @@ import Image from 'next/image';
 
 export const SmileDoc = () => {
   return (
-    <AnimatedSection className="flex flex-col items-center justify-center relative bg-gray-100 shadow-xl backdrop-blur-2xl rounded-3xl sm:h-[90vh] md:mx-4 my-12">
+    <AnimatedSection className="flex flex-col items-center justify-center relative bg-gray-100 shadow-xl backdrop-blur-2xl rounded-3xl sm:h-screen md:mx-4 my-12">
       <div className="flex flex-col items-end md:items-center justify-center relative w-full h-screen sm:h-screen md:h-full md:w-full">
         <Image
           src="/MedDeFiProfessionals3.webp"
           alt="SmileDoc"
-          className="w-full h-screen max-w-full max-h-full object-cover object-right rounded-3xl"
+          className="w-full h-screen max-w-full max-h-full object-cover object-left md:object-right rounded-3xl"
           width={800}
           height={600}
         />
       </div>
       {/* main card */}
-      <div className="flex flex-col absolute items-center md:items-start justify-center  rounded-3xl z-20 w-full md:w-4/5">
-        <div className="flex flex-col w-4/5 md:w-3/5 lg:w-2/5 h-full bg-gradient-to-bl from-white/40 via-white/60 to-white/30 rounded-3xl p-2 md:p-4 backdrop-blur-sm">
+      <div className="flex flex-col absolute items-center md:items-start justify-center rounded-3xl z-20 w-full px-4 md:w-4/5">
+        <div className="flex flex-col w-full md:w-3/5 lg:w-2/5 h-full bg-gradient-to-bl from-white/40 via-white/60 to-white/30 rounded-3xl p-2 md:p-4 backdrop-blur-sm">
           {/* title and description */}
           <div className="flex flex-col items-start w-full h-full pl-4 md:px-8 pt-4">
             <h1 className="text-3xl font-semibold text-left text-gray-900">A Clear Path to Care

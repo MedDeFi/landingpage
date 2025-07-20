@@ -65,9 +65,9 @@ export default function DoctorClientPage() {
             </header>
 
             {/* Composing the page with Section Components */}
-            <HeroSectionDoctor />   
+            <HeroSectionDoctor /> 
+            <AcrossBorders />  
             <SmileDoc />         
-            <AcrossBorders />
             <FAQdoctors />
             <CtaSectionDoc ref={ctaSectionRef} onClaimSpot={() => setIsModalOpen(true)} />
         </div>
