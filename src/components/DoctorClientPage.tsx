@@ -55,7 +55,7 @@ export default function DoctorClientPage() {
     <div className="flex justify-center items-center bg-black min-h-screen">
       <div className="w-full bg-gray-50 shadow-2xl overflow-hidden relative">
         {/* The Scene and Modal remain at the top level */}
-        <div className="absolute inset-0 !z-50">{/* <Scene /> */}</div>
+        <div className="absolute inset-0">{/* <Scene /> */}</div>
         <WaitlistModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
 
 
@@ -88,4 +88,3 @@ export default function DoctorClientPage() {
     </div>
   );
 }
-

@@ -21,7 +21,7 @@ export const CtaSectionDoc = React.forwardRef<HTMLDivElement, CtaSectionDocProps
     return (
       <div 
         ref={ref}
-        className="flex flex-col items-center justify-center relative bg-gray-100 shadow-xl backdrop-blur-2xl rounded-3xl h-[95vh] my-4 md:mx-4 z-30"
+        className="flex flex-col items-center justify-center relative bg-gray-100 shadow-xl backdrop-blur-2xl rounded-3xl h-[95vh] my-4 md:mx-4 z-20"
       >
         <div className="flex flex-col items-start md:items-center justify-center relative w-full h-full">
           <Image
