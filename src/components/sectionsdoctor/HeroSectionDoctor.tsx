@@ -9,7 +9,7 @@ const HeroSectionDoctor = () => {
     <>
       {/* Desktop (large screens) */}
       <div className="hidden lg:block z-40 px-4 pt-4">
-        <div className="relative h-[95vh] bg-white overflow-hidden rounded-3xl w-full items-stretch">
+        <div className="relative h-[95vh] bg-white shadow-xl overflow-hidden rounded-3xl w-full items-stretch">
           {/* Blue background on the right, containing image and patterns */}
           <div className="absolute inset-y-0 right-0 lg:w-1/2 items-end mr-4 mt-12 mb-12 justify-center bottom-0 bg-gradient-to-t from-blue-600 to-white rounded-full overflow-hidden">
             {/* Main Doctor Image */}
@@ -83,7 +83,7 @@ const HeroSectionDoctor = () => {
           </div>
           <div className="relative mt-12 flex flex-col items-center justify-center">
             <div className="w-full h-120 flex items-center justify-center flex">
-              <HeroImage className="w-3/5 h-full items-center justify-center object-cover object-top" alt="Nurse" />
+              <HeroImage className="w-full h-full items-center justify-center object-cover object-top" alt="Nurse" />
               <div className="absolute inset-0 bg-gradient-to-t from-gray-100 via-transparent to-transparent"></div>
 
             </div>
