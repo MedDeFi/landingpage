@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { addWaitlist } from '@/components/forms/Waitlist/api/insertWaitlist';
 
 interface WaitlistModalProps {
   isOpen: boolean;
@@ -23,11 +24,25 @@ export const WaitlistModal = ({ isOpen, onClose }: WaitlistModalProps) => {
       }
   }, [isOpen]);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       if (email) {
           console.log("Waitlist submission:", email);
-          setIsSubmitted(true);
+          try {
+                const result = await addWaitlist({
+                email: email,
+                })
+        
+                if (!result.success) {
+                throw new Error('Failed to submit form')
+                }
+                setIsSubmitted(true);
+            } catch (error) {
+                console.error('Error submitting form:', error);
+            } finally {
+                // Reset form after submission
+                setTimeout(() => setIsSubmitted(false), 3000);
+            }
       }
   };
   
