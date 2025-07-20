@@ -53,6 +53,7 @@ export const WaitlistModal = ({ isOpen, onClose }: WaitlistModalProps) => {
       >
           <div 
               onClick={(e) => e.stopPropagation()}
+              onTouchStart={(e) => e.stopPropagation()}
               className={`fixed bottom-0 w-full bg-gray-100 backdrop-blur-2xl rounded-t-[2rem] p-6 shadow-2xl flex-1 items-center justify-center transition-transform duration-300 ease-out ${isVisible ? 'translate-y-0' : 'translate-y-full'}`}
           >
               <div className="w-10 h-1.5 bg-gray-300 rounded-full mx-auto mb-4"></div>
