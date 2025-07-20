@@ -14,7 +14,7 @@ export const FAQItem = ({ question, answer }: FAQItemProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="border-b border-gray-200/80 py-4 last:border-b-0">
+    <div className="border-b border-gray-200/80 bg-black/10 mb-4 rounded-3xl pl-8 pr-8 py-4 last:border-b-0">
       <button 
         onClick={() => setIsOpen(!isOpen)} 
         className="w-full flex justify-between items-center text-left"
