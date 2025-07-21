@@ -7,20 +7,25 @@ interface GenerateMetadataProps {
   image?: string;
   url?: string;
   type?: 'website' | 'article';
-  
 }
 
 export function generateMetadata({
   title,
   description,
-  image = '/MedDeFi-Socialmedia.png',
+  image = '/MedDeFi-Socialmedia.png', // Keep the default as a relative path
   url,
   type = 'website',
   keywords
 }: GenerateMetadataProps): Metadata {
+  // Define your base URL
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://med-defi.com';
+
   const fullTitle = title ? `${title} | MedDeFi` : 'MedDeFi - Healthcare Across Borders';
   const fullDescription = description || 'MedDeFi is revolutionizing healthcare through technologic solutions, connecting patients and doctors globally.';
   
+  // Construct the absolute URL for the image
+  const absoluteImageUrl = `${siteUrl}${image}`;
+
   return {
     title: fullTitle,
     description: fullDescription,
@@ -28,11 +33,11 @@ export function generateMetadata({
     openGraph: {
       title: fullTitle,
       description: fullDescription,
-      url: url || 'https://med-defi.com',
+      url: url || siteUrl, // Use siteUrl as the default
       siteName: 'MedDeFi',
       images: [
         {
-          url: image,
+          url: absoluteImageUrl, // Use the absolute URL here
           width: 1200,
           height: 630,
           alt: fullTitle,
@@ -45,7 +50,7 @@ export function generateMetadata({
       card: 'summary_large_image',
       title: fullTitle,
       description: fullDescription,
-      images: [image],
+      images: [absoluteImageUrl], // And also here
     },
   };
 }
