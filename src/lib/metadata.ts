@@ -12,19 +12,23 @@ interface GenerateMetadataProps {
 export function generateMetadata({
   title,
   description,
-  image = '/MedDeFi-Socialmedia.png', // Keep the default as a relative path
+  image = '/MedDeFi-Socialmedia.png',
   url,
   type = 'website',
   keywords
 }: GenerateMetadataProps): Metadata {
-  // Define your base URL
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://med-defi.com';
 
   const fullTitle = title ? `${title} | MedDeFi` : 'MedDeFi - Healthcare Across Borders';
   const fullDescription = description || 'MedDeFi is revolutionizing healthcare through technologic solutions, connecting patients and doctors globally.';
-  
-  // Construct the absolute URL for the image
-  const absoluteImageUrl = `${siteUrl}${image}`;
+
+  // Ensure image is an absolute URL
+  let absoluteImageUrl = image;
+  if (!/^https?:\/\//i.test(image)) {
+    // Ensure leading slash
+    const imagePath = image.startsWith('/') ? image : `/${image}`;
+    absoluteImageUrl = `${siteUrl}${imagePath}`;
+  }
 
   return {
     title: fullTitle,
@@ -33,11 +37,11 @@ export function generateMetadata({
     openGraph: {
       title: fullTitle,
       description: fullDescription,
-      url: url || siteUrl, // Use siteUrl as the default
+      url: url || siteUrl,
       siteName: 'MedDeFi',
       images: [
         {
-          url: absoluteImageUrl, // Use the absolute URL here
+          url: absoluteImageUrl,
           width: 1200,
           height: 630,
           alt: fullTitle,
@@ -50,7 +54,10 @@ export function generateMetadata({
       card: 'summary_large_image',
       title: fullTitle,
       description: fullDescription,
-      images: [absoluteImageUrl], // And also here
+      images: [absoluteImageUrl],
+    },
+    other: {
+      'fb:app_id': '1327931375479778', // Reemplaza con tu App ID real
     },
   };
 }
