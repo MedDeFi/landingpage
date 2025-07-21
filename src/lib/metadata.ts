@@ -13,17 +13,18 @@ interface GenerateMetadataProps {
 export function generateMetadata({
   title,
   description,
-  image = '/MedDeFi logo.svg',
+  image = '/MedDeFi-Socialmedia.png',
   url,
-  type = 'website'
+  type = 'website',
+  keywords
 }: GenerateMetadataProps): Metadata {
-  const fullTitle = title ? `${title} | MedDeFi` : 'MedDeFi - Healthcare Solutions Across Borders';
-  const fullDescription = description || 'MedDeFi is revolutionizing healthcare through technologic solutions, connecting patients and healthcare professionals globally.';
+  const fullTitle = title ? `${title} | MedDeFi` : 'MedDeFi - Healthcare Across Borders';
+  const fullDescription = description || 'MedDeFi is revolutionizing healthcare through technologic solutions, connecting patients and doctors globally.';
   
   return {
     title: fullTitle,
     description: fullDescription,
-    keywords: ['healthcare', 'decentralized', 'medical', 'defi', 'blockchain', 'telemedicine', 'medical tourism'],
+    keywords: keywords ?? ['healthcare', 'decentralized', 'medical', 'defi', 'blockchain', 'telemedicine', 'medical tourism'],
     openGraph: {
       title: fullTitle,
       description: fullDescription,
@@ -52,21 +53,21 @@ export function generateMetadata({
 // Predefined metadata for common pages
 export const metadataConfig = {
   home: {
-    title: 'Home',
+    title: 'Medical Tourism | MedDeFi',
     description: 'Welcome to MedDeFi - The future of healthcare. Connect patients and healthcare professionals globally through secure, transparent innovative technology.',
-    keywords: ['MedDeFi', 'decentralized healthcare', 'blockchain medicine', 'global healthcare', 'telemedicine platform'],
-    image: '/MedDeFi logo.svg'
+    keywords: ['MedDeFi','decentralized medical tourism', 'healthcare', 'decentralized healthcare', 'blockchain medicine', 'global healthcare', 'telemedicine platform'],
+    image: '/MedDeFi-Socialmedia.png'
   },
   doctors: {
-    title: 'For Healthcare Professionals',
+    title: 'Medical Tourism For Doctors',
     description: 'Join MedDeFi as a healthcare professional. Access global patients, secure payments, and innovative healthcare solutions powered by advanced technology.',
     keywords: ['healthcare professionals', 'doctors', 'nurses', 'telemedicine', 'global healthcare', 'blockchain payments'],
-    image: '/MedDeFiProfessionals1.png'
+    image: '/MedDeFi-Socialmedia.png'
   },
   patients: {
-    title: 'For Patients',
+    title: 'Medical Tourism For Patients',
     description: 'Access global healthcare professionals through MedDeFi. Secure, transparent, and affordable healthcare services powered by innovative technology.',
     keywords: ['patients', 'healthcare access', 'global doctors', 'telemedicine', 'blockchain healthcare', 'secure payments', 'medical tourism'],
-    image: '/nurse2.png'
+    image: '/MedDeFi-Socialmedia.png'
   }
 }; 
