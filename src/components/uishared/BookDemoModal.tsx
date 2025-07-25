@@ -6,7 +6,7 @@ interface BookDemoModalProps {
   onClose: () => void;
 }
 
-const CALENDLY_URL = process.env.REACT_APP_CALENDLY_URL || "";
+const CALENDLY_URL = process.env.NEXT_PUBLIC_CALENDLY_URL || "";
 
 export const BookDemoModal = ({ isOpen, onClose }: BookDemoModalProps) => {
   const [email, setEmail] = useState("");
