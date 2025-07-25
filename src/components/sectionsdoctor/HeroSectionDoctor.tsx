@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { HeroTitleDoc, HeroImage, HeroWaitlistButton } from '../uishared/HeroSectionParts';
-import { WaitlistModal } from '../uipatients/WaitlistModal';
+import { HeroTitleDoc, HeroImage, HeroBookDemoButton } from '../uishared/HeroSectionParts';
+import { BookDemoModal } from '../uishared/BookDemoModal';
 
 const HeroSectionDoctor = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -29,13 +29,13 @@ const HeroSectionDoctor = () => {
                 <HeroTitleDoc />
             
                 <div className="flex mt-4">
-                  <HeroWaitlistButton onClick={() => setIsModalOpen(true)} />
+                  <HeroBookDemoButton onClick={() => setIsModalOpen(true)} />
                 </div>
               </div>
             </div>
             {/* Waitlist Modal */}
             <div className="absolute inset-0 mb-16">
-              <WaitlistModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+              <BookDemoModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
             </div>
           </div>
         </div>
@@ -62,13 +62,13 @@ const HeroSectionDoctor = () => {
               <div className="item-evenly">
                 <HeroTitleDoc />
                 <div className="flex mt-4">
-                  <HeroWaitlistButton onClick={() => setIsModalOpen(true)} />
+                  <HeroBookDemoButton onClick={() => setIsModalOpen(true)} />
                 </div>
               </div>
             </div>
             {/* Waitlist Modal */}
             <div className="absolute inset-0 mb-16">
-              <WaitlistModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+              <BookDemoModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
             </div>
           </div>
         </div>
@@ -94,4 +94,4 @@ const HeroSectionDoctor = () => {
   );
 };
 
-export default HeroSectionDoctor; 
+export default HeroSectionDoctor;
