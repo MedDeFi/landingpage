@@ -6,7 +6,7 @@ interface BookDemoModalProps {
   onClose: () => void;
 }
 
-const CALENDLY_URL = "https://calendly.com/masotti-leandro/30min"; // Reemplaza con tu link de Calendly
+const CALENDLY_URL = process.env.REACT_APP_CALENDLY_URL || "";
 
 export const BookDemoModal = ({ isOpen, onClose }: BookDemoModalProps) => {
   const [email, setEmail] = useState("");
@@ -114,7 +114,7 @@ export const BookDemoModal = ({ isOpen, onClose }: BookDemoModalProps) => {
               <p className="text-gray-600">Now select your demo time below:</p>
             </div>
             <iframe
-              src={CALENDLY_URL}
+              src={`${CALENDLY_URL}?email=${encodeURIComponent(email)}`}
               width="100%"
               height="600"
               frameBorder="0"
