@@ -19,8 +19,8 @@ export function generateMetadata({
 }: GenerateMetadataProps): Metadata {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://med-defi.com';
 
-  const fullTitle = title ? `${title} | MedDeFi` : 'MedDeFi - Healthcare Across Borders';
-  const fullDescription = description || 'MedDeFi is revolutionizing healthcare through technologic solutions, connecting patients and doctors globally.';
+  const fullTitle = title ? `${title} | MedDeFi` : 'The Airbnb of Medical Tourism';
+  const fullDescription = description || 'MedDeFi is the easiest, safest, and most secure way for patients to book verified medical providers, while empowering healthcare providers to scale across borders.';
 
   // Ensure image is an absolute URL
   let absoluteImageUrl = image;
