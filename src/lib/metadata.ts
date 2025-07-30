@@ -40,10 +40,10 @@ interface GenerateMetadataProps {
   url?: string;
   type?: 'website' | 'article';
   canonical?: string;
-  structuredData?: any;
+  structuredData?: Record<string, string>; // Fix: Replace 'any' with proper type
   noindex?: boolean;
   nofollow?: boolean;
-  locale?: string;
+  // locale?: string; // Fix: Remove unused parameter
   alternateLanguages?: Record<string, string>;
   breadcrumbs?: Array<{ name: string; url: string }>;
   faqData?: Array<{ question: string; answer: string }>;
@@ -66,7 +66,7 @@ const ENV_VARS = {
   BING_VERIFICATION: 'BING_VERIFICATION_CODE',
   
   // Social Media (Optional)
-  FACEBOOK_APP_ID: '1327931375479778',
+  FACEBOOK_APP_ID: 'FACEBOOK_APP_ID', // Fix: Change from hardcoded value to env var name
   FACEBOOK_VERIFICATION: 'FACEBOOK_VERIFICATION_CODE',
   TWITTER_HANDLE: 'TWITTER_HANDLE',
   TWITTER_CREATOR_ID: 'TWITTER_CREATOR_ID',  
@@ -168,7 +168,7 @@ export function generateMetadata({
   structuredData,
   noindex = false,
   nofollow = false,
-  locale = 'en',
+  // locale = 'en', // Fix: Remove unused parameter
   alternateLanguages,
   breadcrumbs,
   faqData,
@@ -428,7 +428,7 @@ function generateEnhancedStructuredData({
   category?: string;
   type?: string;
 }) {
-  const structuredData: Record<string, any> = {};
+  const structuredData: Record<string, string> = {}; // Fix: Replace 'any' with 'string'
   const env = getEnvironmentConfig();
 
   try {
