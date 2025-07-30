@@ -13,7 +13,6 @@ const geistMono = Geist_Mono({
 });
 export const metadata: Metadata = { metadataBase: new URL('https://meddefi.com') };
 
-
 export default function RootLayout({
   children,
 }: Readonly<{
