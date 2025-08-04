@@ -14,7 +14,7 @@ const HeroSectionDoctor = () => {
           <div className="absolute inset-y-0 right-0 lg:w-1/2 items-end mr-4 mt-12 mb-12 justify-center bottom-0 bg-gradient-to-t from-blue-600 to-white rounded-full overflow-hidden">
             {/* Main Doctor Image */}
             <div className="absolute bottom-0 w-full flex justify-center items-end z-20">
-              <HeroImage className="md:w-4/5 md:4/5 lg:w-2/5 lg:h-2/5 object-contain" alt="Doctor" />
+              <HeroImage className="h-3/5 w-3/5 object-cover" alt="Doctor" />
             </div>
             {/* Background pattern on blue section */}
             <div className="absolute inset-0 z-0">
@@ -58,7 +58,7 @@ const HeroSectionDoctor = () => {
           </div>
           <div className="relative flex flex-col min-h-screen justify-center items-centerx rounded-3xl">
             {/* Left Section - White Background */}
-            <div className="w-full md:w-1/2 flex flex-col p-8 text-gray-800 relative justify-center items-center rounded-3xl">
+            <div className="w-full md:w-1/2 flex flex-col p-8 md:ml-8 text-gray-800 relative justify-center items-center rounded-3xl">
               <div className="item-evenly">
                 <HeroTitleDoc />
                 <div className="flex mt-4">
