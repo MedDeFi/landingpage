@@ -1,6 +1,5 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface Testimonial {
@@ -18,14 +17,7 @@ interface BentoProps {
   className?: string;
 }
 
-export default function Bento({ 
-  backgroundColor = "#5b86a4", 
-  textColor = "white",
-  className = "" 
-}: BentoProps) {
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
-
-  const testimonials: Testimonial[] = [
+const testimonials: Testimonial[] = [
     {
       id: 1,
       quote: "When my treatment arrived, let's just say: my wife and I haven't had that much fun in a long time. Now, we schedule weekly date nights and get to enjoy one another again. I couldn't be happier with the results.",
@@ -66,7 +58,14 @@ export default function Bento({
       product: "Sildenafil Chews",
       avatar: "/avatars/jason.jpg"
     }
-  ];
+];
+
+export default function Bento({ 
+  backgroundColor = "#5b86a4", 
+  textColor = "white",
+  className = "" 
+}: BentoProps) {
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   const nextTestimonial = () => {
     setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
@@ -172,7 +171,7 @@ export default function Bento({
                 className="flex transition-transform duration-500 ease-in-out"
                 style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}
               >
-                {testimonials.map((testimonial, index) => (
+                {testimonials.map((testimonial) => (
                   <div key={testimonial.id} className="w-full flex-shrink-0">
                     <div className="flex flex-col items-center text-center space-y-6">
                       <div className="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full flex items-center justify-center">
@@ -181,9 +180,9 @@ export default function Bento({
                         </span>
                       </div>
                       <blockquote className="text-xl max-w-2xl leading-relaxed">
-                        <strong>"{testimonial.quote.split('"')[1]}</strong>
+                        <strong>&quot;{testimonial.quote.split('"')[1]}</strong>
                         {testimonial.quote.split('"')[2]}
-                        <strong>{testimonial.quote.split('"')[3]}</strong>
+                        <strong>{testimonial.quote.split('"')[3]}&quot;</strong>
                       </blockquote>
                       <div className="text-center">
                         <h4 className="font-semibold text-lg">{testimonial.name}, {testimonial.age}</h4>

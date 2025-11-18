@@ -2,7 +2,6 @@
 import React from "react";
 import Image from "next/image";
 import MarketingHeader from "./MarketingHeader";
-import { WaitlistModal } from "../uishared/WaitlistModal";
 import { WaitlistButton } from "../uishared/HeroSectionParts";
 
 // 1. Use React.memo to prevent unnecessary re-renders (if props are added in the future)

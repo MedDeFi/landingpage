@@ -23,8 +23,8 @@ export default function NotFound() {
 
         {/* Description */}
         <p className="text-lg md:text-xl text-gray-600 mb-8 animate-fade-in-up max-w-md mx-auto">
-          The page you're looking for seems to have wandered off. 
-          Let's get you back to exploring medical tourism opportunities.
+          The page you&apos;re looking for seems to have wandered off. 
+          Let&apos;s get you back to exploring medical tourism opportunities.
         </p>
 
         {/* Stats Card - Following project pattern */}
@@ -64,7 +64,7 @@ export default function NotFound() {
 
         {/* Additional Help Text */}
         <p className="text-sm text-gray-500 mt-8 animate-fade-in-up">
-          Can't find what you're looking for?{' '}
+          Can&apos;t find what you&apos;re looking for?{' '}
           <Link href="/contact" className="text-blue-600 hover:text-blue-700 underline">
             Contact our support team
           </Link>

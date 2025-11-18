@@ -14,7 +14,7 @@ export async function addWaitlist(formData: { email: string }) {
 
     console.log('Server Action: Inserting data:', formData)
 
-    const { error: insertError, data } = await supabase
+    const { error: insertError } = await supabase
       .from('waitlist')
       .insert([{ email: formData.email.trim() }])
       .select()

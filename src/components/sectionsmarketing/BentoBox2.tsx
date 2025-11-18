@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const testimonials = [
   {
@@ -22,7 +21,7 @@ const testimonials = [
 ];
 
 export default function BentoBox2() {
-  const [current, setCurrent] = useState(0);
+  const [, setCurrent] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {

@@ -2,8 +2,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { WaitlistModal } from '@/components/uishared/WaitlistModal';
-import { CtaSectionDoc } from '@/components/sectionsdoctor/CtaSectionDoc';
-import MarketingHeroSection from './MarketingHeroSection';
 import BentoGrid1 from './BentoGrid1';
 import HeroMar from './HeroMar';
 import Bento from './bento';
