@@ -4,10 +4,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import NavBar from '@/components/layout/NavBar';
 import { WaitlistModal } from '../uishared/WaitlistModal';
 import Loading from '@/components/ui/Loading';
-import { FAQdoctors } from '@/components/sectionsdoctor/FAQdoctors';
 import { CtaSectionDoc } from '@/components/sectionsdoctor/CtaSectionDoc';
 import HeroSectionDoctor  from '@/components/sectionsdoctor/HeroSectionDoctor';
-import { SmileDoc } from '@/components/sectionsdoctor/SmileDoc';
 import { AcrossBorders } from '@/components/sectionsdoctor/AcrossBorders';
 import Showcase from '../ui/Showcase';
 import Highlights from './Highlights';
@@ -82,7 +80,7 @@ export default function DoctorClientPage() {
             </div>
 
             {/* Sticky Footer CTA */}
-            <div className={`lg:hidden fixed bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-gray-100/90 via-gray-100/90 to-transparent z-50 transition-opacity duration-0 ${(isCtaVisible || isModalOpen) ? 'opacity-0 pointer-events-none' : 'opacity-100 pointer-events-auto'}`}>
+            <div className={`lg:hidden fixed bottom-0 left-0 right-0 p-4 z-50 transition-opacity duration-0 ${(isCtaVisible || isModalOpen) ? 'opacity-0 pointer-events-none' : 'opacity-100 pointer-events-auto'}`}>
               <div>
                 <button
                   onClick={() => setIsModalOpen(true)}

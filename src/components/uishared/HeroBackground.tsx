@@ -16,7 +16,7 @@ export const HeroBackground: React.FC<HeroBackgroundProps> = ({
 }) => {
   return (
     <div 
-      className={`absolute inset-y-0 right-0 items-end justify-center bottom-0 bg-gradient-to-t from-blue-600 to-white rounded-full overflow-hidden ${className}`}
+      className={`absolute inset-y-0 right-0 items-end justify-center bottom-0 bg-gradient-to-t from-blue-600 to-white rounded-full overflow-hidden max-h-[85%] max-w-[80%] ${className}`}
       style={style}
     >
       {/* Main Image */}

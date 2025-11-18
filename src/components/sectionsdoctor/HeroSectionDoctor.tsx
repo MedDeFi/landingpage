@@ -36,7 +36,7 @@ const HeroSectionDoctor = ({ onOpenModal }: HeroSectionDoctorProps) => {
       </div>
 
       {/* Tablet (medium screens - 768px to 1023px) */}
-      <div key="tablet-hero" className="hidden md:flex lg:hidden z-40 h-auto w-full"
+      <div key="tablet-hero" className="hidden md:flex lg:hidden z-40 h-screen w-full"
            style={{ 
              padding: 'var(--hero-padding-sm)',
              paddingTop: 'var(--hero-padding-md)'
@@ -44,7 +44,7 @@ const HeroSectionDoctor = ({ onOpenModal }: HeroSectionDoctorProps) => {
         <HeroContainer variant="tablet">
           <HeroBackground 
             className="w-1/2" 
-            imageClassName="max-h-[500px] max-w-[500px] object-cover object-top"
+            imageClassName="max-h-[400px] max-w-[400px] object-cover object-top"
             style={{ 
               marginRight: 'var(--hero-margin-md)',
               marginTop: 'var(--hero-spacing-lg)',
