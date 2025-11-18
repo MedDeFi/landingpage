@@ -11,8 +11,7 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
-export const metadata: Metadata = { metadataBase: new URL('https://meddefi.com') };
-
+export const metadata: Metadata = { metadataBase: new URL('https://meddefi.app') };
 export default function RootLayout({
   children,
 }: Readonly<{

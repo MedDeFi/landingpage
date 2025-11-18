@@ -7,6 +7,11 @@ export function middleware(request: NextRequest) {
 
   // In production, only allow /doctors route
   if (isProduction) {
+    // Redirect root to /doctors
+    if (pathname === '/') {
+      return NextResponse.redirect(new URL('/doctors', request.url));
+    }
+    
     // Allow /doctors and its sub-routes
     if (pathname.startsWith('/doctors')) {
       return NextResponse.next();

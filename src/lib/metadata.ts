@@ -84,7 +84,7 @@ function validateEnvironment(): void {
   if (!siteUrl) {
     console.error(`❌ Missing required environment variable: ${ENV_VARS.SITE_URL}`);
     console.log('Please add the following to your .env.local file:');
-    console.log(`${ENV_VARS.SITE_URL}=https://med-defi.com`);
+    console.log(`${ENV_VARS.SITE_URL}=https://meddefi.app`);
   }
   
   // Warn about missing optional but recommended variables
@@ -142,7 +142,7 @@ function getEnvVar(key: string, fallback: string = ''): string {
 // Get all environment variables with proper validation
 function getEnvironmentConfig() {
   return {
-    siteUrl: getEnvVar(ENV_VARS.SITE_URL, 'https://med-defi.com'),
+    siteUrl: getEnvVar(ENV_VARS.SITE_URL, 'https://meddefi.app'),
     googleVerification: getEnvVar(ENV_VARS.GOOGLE_VERIFICATION),
     yandexVerification: getEnvVar(ENV_VARS.YANDEX_VERIFICATION),
     yahooVerification: getEnvVar(ENV_VARS.YAHOO_VERIFICATION),
@@ -334,7 +334,7 @@ export function generateMetadata({
       locale: 'en_US',
       type,
       countryName: 'United States',
-      emails: ['contact@med-defi.com'],
+      emails: ['contact@meddefi.app'],
       phoneNumbers: [formatPhoneNumber('8006333334')], // Using properly formatted number
       faxNumbers: [],
       ttl: 86400,
@@ -441,7 +441,7 @@ function generateEnhancedStructuredData({
           '@type': 'ListItem',
           position: index + 1,
           name: crumb.name,
-          item: isValidUrl(crumb.url) ? crumb.url : `${getEnvVar('NEXT_PUBLIC_SITE_URL', 'https://med-defi.com')}${crumb.url}`
+          item: isValidUrl(crumb.url) ? crumb.url : `${getEnvVar('NEXT_PUBLIC_SITE_URL', 'https://meddefi.app')}${crumb.url}`
         }))
       });
     }
@@ -504,7 +504,7 @@ function generateEnhancedStructuredData({
       publisher: {
         '@type': 'Organization',
         name: 'MedDeFi',
-        url: getEnvVar('NEXT_PUBLIC_SITE_URL', 'https://med-defi.com')
+        url: getEnvVar('NEXT_PUBLIC_SITE_URL', 'https://meddefi.app')
       }
     });
   } catch (error) {
