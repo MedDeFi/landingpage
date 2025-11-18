@@ -8,7 +8,7 @@ export default function NotFound() {
         {/* 404 Number with Aurora Effect */}
         <div className="mb-8">
           <AuroraText 
-            className="text-9xl md:text-[12rem] font-bold"
+            className="text-9xl md:text-[12rem] lg:text-[14rem] font-bold"
             colors={["#3b82f6", "#1d4ed8", "#1e40af"]}
             speed={0.8}
           >

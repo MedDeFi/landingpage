@@ -12,16 +12,12 @@ export async function addWaitlist(formData: { email: string }) {
   try {
     const supabase = getSupabaseServerClient()
 
-    console.log('Server Action: Inserting data:', formData)
-
     const { error: insertError } = await supabase
       .from('waitlist')
       .insert([{ email: formData.email.trim() }])
       .select()
 
     if (insertError) {
-      console.error('Server Action: Supabase insert error:', insertError)
-      // Include detailed error message for debugging
       const errorMessage = insertError.message || 'Unknown error'
       const errorCode = insertError.code || 'unknown'
       return { 
@@ -29,8 +25,6 @@ export async function addWaitlist(formData: { email: string }) {
         message: `Error saving email to waitlist: ${errorMessage} (Code: ${errorCode})` 
       }
     }
-
-    console.log('Server Action: Insert successful')
 
     if (resend) {
       const htmlContent = waitlistEmailTemplate({
@@ -42,23 +36,19 @@ export async function addWaitlist(formData: { email: string }) {
         await resend.emails.send({
           from: 'MedDefi <onboarding@resend.dev>',
           to: formData.email,
-          subject: 'You’re on the MedDefi waitlist! 🎉',
+          subject: "You're on the MedDefi waitlist! 🎉",
           html: htmlContent,
         })
-
-        console.log('Server Action: Email sent successfully')
       } catch (emailError) {
-        console.error('Server Action: Resend email error:', emailError)
+        // Email send failed but user was added to waitlist successfully
+        // Continue without blocking the user experience
       }
-    } else {
-      console.warn('Server Action: RESEND_API_KEY not set, skipping email')
     }
 
     revalidatePath('/patients')
 
     return { success: true, message: 'Successfully added to the waitlist.' }
   } catch (error) {
-    console.error('Server Action: Unexpected error:', error)
     return { success: false, message: 'Unexpected error occurred.' }
   }
 }

@@ -129,7 +129,13 @@ export const WaitlistModal = ({ isOpen, onClose }: WaitlistModalProps) => {
 
             <form onSubmit={handleSubmit} className="space-y-4">
               {error && (
-                <div className="text-red-600 text-sm bg-red-50 p-3 rounded-lg border border-red-200">{error}</div>
+                <div 
+                  className="text-red-600 text-sm bg-red-50 p-3 rounded-lg border border-red-200" 
+                  role="alert"
+                  aria-live="assertive"
+                >
+                  {error}
+                </div>
               )}
 
               <input
@@ -147,10 +153,15 @@ export const WaitlistModal = ({ isOpen, onClose }: WaitlistModalProps) => {
                 type="submit"
                 disabled={isSubmitting || !email.trim()}
                 className="w-full bg-blue-600 text-white font-semibold rounded-full text-lg py-4 hover:bg-blue-700 active:bg-blue-800 focus:ring-4 focus:ring-blue-200 transition-all duration-200 disabled:bg-gray-400 disabled:cursor-not-allowed disabled:transform-none"
+                aria-label={isSubmitting ? "Joining waitlist, please wait" : "Join waitlist"}
               >
                 {isSubmitting ? (
                   <span className="flex items-center justify-center gap-2">
-                    <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+                    <svg 
+                      className="animate-spin h-5 w-5" 
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
                       <circle
                         className="opacity-25"
                         cx="12"
@@ -166,7 +177,7 @@ export const WaitlistModal = ({ isOpen, onClose }: WaitlistModalProps) => {
                         d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                       />
                     </svg>
-                    Joining...
+                    <span aria-live="polite">Joining...</span>
                   </span>
                 ) : (
                   "Join Waitlist"

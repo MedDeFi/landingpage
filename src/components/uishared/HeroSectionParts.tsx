@@ -5,28 +5,42 @@ import Image from 'next/image';
 
 export const HeroTitleDoc = () => (
   <>
-    <h1 className="text-7xl md:text-[68px] lg:text-[110px] text-black font-semibold mb-1 animate-fade-in text-center md:text-left lg:text-left">
+    <h1 className="text-hero-fluid text-black font-semibold animate-fade-in text-center md:text-left lg:text-left" 
+        style={{ marginBottom: 'var(--hero-spacing-xs)' }}>
       Healthcare
     </h1>
-    <h1 className="text-7xl md:text-[72px] lg:text-[116px] text-black !font-semibold mb-1 animate-fade-in text-center md:text-left lg:text-left">
+    <h1 className="text-hero-fluid-xl text-black !font-semibold animate-fade-in text-center md:text-left lg:text-left"
+        style={{ marginBottom: 'var(--hero-spacing-xs)' }}>
       Re
       <span className='font-semibold'>
         <AuroraText>defi</AuroraText>
       </span>
       ned
     </h1>
-    <p className="hidden md:block lg:block mt-4 mb-8 text-lg text-gray-600 animate-fade-in-up ml-0 md:ml-4 text-left pr-20 md:text-left">
+    <p className="hidden md:block lg:block text-hero-subtitle-fluid text-gray-600 animate-fade-in-up text-left pr-20 md:text-left"
+       style={{ 
+         marginTop: 'var(--hero-spacing-md)', 
+         marginBottom: 'var(--hero-spacing-lg)',
+         marginLeft: 'var(--hero-spacing-xs)'
+       }}>
     We are building a new era of medical tourism where <span className='font-semibold'>privacy and speed are non-negotiable.</span> 
     </p>
   </>
 );
 
 export const HeroStats = () => (
-  <div className="relative flex text-center justify-around items-center px-4 py-4 bg-white/60 backdrop-blur-xl rounded-2xl mx-4 md:mx-16 md:ml-4 lg:mt-12 shadow-lg animate-fade-in-up border border-white/80">
+  <div className="relative flex text-center justify-around items-center bg-white/60 backdrop-blur-xl rounded-2xl shadow-lg animate-fade-in-up border border-white/80"
+       style={{
+         padding: 'var(--hero-padding-md)',
+         margin: 'var(--hero-margin-md)',
+         marginTop: 'var(--hero-spacing-xl)',
+         borderRadius: 'var(--hero-spacing-md)',
+         gap: 'var(--hero-stat-gap)'
+       }}>
     <StatCard value={350} label="Waitlist Members" />
-    <div className="w-px text-center h-12 bg-gray-300/70"></div>
+    <div className="bg-gray-300/70" style={{ width: '1px', height: 'clamp(2rem, 4vw, 3rem)' }}></div>
     <StatCard value={152} label="Healthcare Providers" />
-    <div className="w-px h-12 bg-gray-300/70"></div>
+    <div className="bg-gray-300/70" style={{ width: '1px', height: 'clamp(2rem, 4vw, 3rem)' }}></div>
     <StatCard value={8} label="Supported Countries" suffix="+" />
   </div>
 );
@@ -40,26 +54,50 @@ export const HeroImage = ({ className = '', alt = 'Nurse' }: { className?: strin
     height={800}
     priority
     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 40vw"
-    quality={85}
-    placeholder="blur"
-    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+    quality={100}
+    style={{
+      maxWidth: 'var(--hero-image-max-width)',
+      maxHeight: 'var(--hero-image-max-height)',
+      width: 'auto',
+      height: 'auto'
+    }}
   />
 );
 
 export const HeroBookDemoButton: React.FC<{ onClick: () => void }> = ({ onClick }) => (
   <button
     onClick={onClick}
-    className="cta-button group md:w-4/5 lg:w-4/5 flex items-center justify-center bg-gradient-to-t from-blue-600 to-blue-500 text-white font-semibold mt-8 py-4 rounded-full shadow-xg hover:shadow-xl transition-all duration-300 !z-20 ease-in-out transform hover:scale-105 active:scale-100"
+    className="cta-button group flex items-center justify-center bg-gradient-to-t from-blue-600 to-blue-500 text-white font-semibold rounded-full shadow-xg hover:shadow-xl transition-all duration-300 !z-20 ease-in-out transform hover:scale-105 active:scale-100"
+    style={{
+      paddingTop: 'var(--hero-button-padding-y)',
+      paddingBottom: 'var(--hero-button-padding-y)',
+      paddingLeft: 'var(--hero-button-padding-x)',
+      paddingRight: 'var(--hero-button-padding-x)',
+      marginTop: 'var(--hero-spacing-lg)',
+      fontSize: 'var(--hero-button-text)',
+      borderRadius: 'var(--hero-button-radius)',
+      width: 'clamp(200px, 80%, 400px)'
+    }}
   >
-    <span className="text-lg">Book a Demo</span>
+    <span>Book a Demo</span>
   </button>
 );
 
 export const WaitlistButton: React.FC<{ onClick: () => void }> = ({ onClick }) => (
   <button
     onClick={onClick}
-    className="cta-button group w-full md:w-4/5 lg:w-3/5 flex items-center justify-center bg-gradient-to-t from-blue-500 via-blue-600 to-blue-500 text-white font-semibold mt-8 py-4 rounded-full shadow-xg hover:shadow-xl transition-all duration-300 !z-20 ease-in-out transform hover:scale-105 active:scale-100"
+    className="cta-button group flex items-center justify-center bg-gradient-to-t from-blue-500 via-blue-600 to-blue-500 text-white font-semibold rounded-full shadow-xg hover:shadow-xl transition-all duration-300 !z-20 ease-in-out transform hover:scale-105 active:scale-100"
+    style={{
+      paddingTop: 'var(--hero-button-padding-y)',
+      paddingBottom: 'var(--hero-button-padding-y)',
+      paddingLeft: 'var(--hero-button-padding-x)',
+      paddingRight: 'var(--hero-button-padding-x)',
+      marginTop: 'var(--hero-spacing-lg)',
+      fontSize: 'var(--hero-button-text)',
+      borderRadius: 'var(--hero-button-radius)',
+      width: 'clamp(200px, 80%, 400px)'
+    }}
   >
-    <span className="text-lg">Join Waitlist</span>
+    <span>Join Waitlist</span>
   </button>
 );

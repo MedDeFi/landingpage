@@ -11,8 +11,6 @@ export async function addWaitlistDoctor(formData: {
   try {
     const supabase = getSupabaseClient()
     
-    console.log('Server Action: Inserting data:', formData)
-    
     // Insert data into the waitlist table
     const { error } = await supabase
       .from('doctor_waitlist')
@@ -24,18 +22,14 @@ export async function addWaitlistDoctor(formData: {
       ])
     
     if (error) {
-      console.error('Server Action: Error inserting into doctor_waitlist table:', error)
       throw new Error(error.message)
     }
-    
-    console.log('Server Action: Insert successful');
     
     // Revalidate the patients page to refresh the data
     revalidatePath('/patients')
     
     return { success: true }
   } catch (error) {
-    console.error('Server Action: Unexpected error:', error)
     throw new Error('An unexpected error occurred')
   }
 }

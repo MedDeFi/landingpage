@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from 'react'; // Import the entire React object and useEffect
+import React from 'react';
 import Image from 'next/image';
 
 // Define the props for our section
@@ -12,27 +12,21 @@ interface CtaSectionDocProps {
 // This allows the component to receive a ref and forward it to a DOM element
 export const CtaSectionDoc = React.forwardRef<HTMLDivElement, CtaSectionDocProps>(
   ({ onClaimSpot }, ref) => {
-    const [isCtaVisible] = React.useState(false);
-
-    useEffect(() => {
-      console.log('isCtaVisible:', isCtaVisible);
-    }, [isCtaVisible]);
-
     return (
       <div 
         ref={ref}
-        className="flex flex-col items-center justify-center relative bg-gray-100 shadow-xl backdrop-blur-2xl rounded-3xl h-[95vh] my-4 md:mx-4 z-20"
+        className="relative flex items-center justify-center overflow-hidden rounded-3xl min-h-[600px] lg:min-h-[700px] my-4 md:mx-4 z-20 bg-gray-100"
       >
-        <div className="flex flex-col items-start md:items-center justify-center relative w-full h-full">
-          <Image
-            src="/MedDeFiProfessionals2.webp"
-            alt="SmileDoc"
-            className="w-full h-full max-w-full max-h-full object-cover object-right rounded-3xl"
-            width={800}
-            height={600}
-          />
-        </div>
-        <div className='flex flex-col absolute bg-gray-500/40 lg:bg-white/0  backdrop-blur-sm md:left-12 lg:left-28 items-center md:items-start justify-center rounded-3xl p-4 md:p-16 mx-4 py-16 md:p-4 lg:py-20 lg:px-4 md:w-2/5'>
+        {/* Full-bleed background image */}
+        <Image
+          src="/MedDeFiProfessionals2.webp"
+          alt="SmileDoc"
+          fill
+          className="absolute inset-0 w-full h-full object-cover object-right rounded-3xl"
+        />
+
+        {/* Content overlay */}
+        <div className='flex flex-col absolute bg-gray-500/50 lg:bg-white/0  backdrop-blur-sm md:left-12 lg:left-28 items-center md:items-start justify-center rounded-3xl p-4 md:p-8 lg:p-10 mx-4 py-16 md:w-2/5'>
           <h2 className="text-4xl text-center md:text-start font-bold text-white">Unlock Your Potential as a Professional</h2>
           <p className="text-white text-center md:text-start my-4">Taking advantage of the medical tourism rising market in a seamless and secure enviroment.</p>
         

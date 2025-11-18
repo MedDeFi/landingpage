@@ -15,10 +15,13 @@ export const StatCard = ({ value, label, suffix = '' }: StatCardProps) => {
         className="text-3xl font-semibold text-gray-800"
         ref={countUpRef}
         data-suffix={suffix}
+        aria-live="polite"
       >
         {0}
       </span>
-      <span className="text-xs text-gray-500 mt-1" dangerouslySetInnerHTML={{ __html: label }} />
+      <span className="text-xs text-gray-500 mt-1">
+        {label}
+      </span>
     </div>
   );
 };

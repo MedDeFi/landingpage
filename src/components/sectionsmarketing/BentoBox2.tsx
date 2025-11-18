@@ -94,7 +94,7 @@ export default function BentoBox2() {
       </div>
       </div>
       
-      <div className="flex flex-1 h-[80vh] w-full justify-between items-center flex-col">
+      <div className="flex flex-1 min-h-[600px] lg:min-h-[700px] w-full justify-between items-center flex-col">
       <div className="flex flex-col h-full bg-gray-800/20 backdrop-blur-lg pt-12 rounded-3xl items-start justify-between gap-4 z-20 w-full">
         {/* Left: Text */}
         <div className="flex flex-col justify-center items-center w-full">

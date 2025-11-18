@@ -45,7 +45,6 @@ const PatientForm = () => {
       });
     } catch (error) {
       toast.error('Something went wrong. Please try again.');
-      console.error('Error submitting form:', error);
     } finally {
       // Reset form after submission
       setTimeout(() => setIsSubmitted(false), 3000);

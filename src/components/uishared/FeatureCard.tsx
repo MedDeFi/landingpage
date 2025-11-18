@@ -26,7 +26,7 @@ export const FeatureCard = ({ icon, title, description }: FeatureCardProps) => {
   }, []);
 
   return (
-    <div ref={tiltRef} className="feature-card group bg-white/50 backdrop-blur-2xl rounded-3xl px-4 flex flex-row items-center space-x-4 h-full border border-white/80 shadow-lg">
+    <div ref={tiltRef} className="feature-card group bg-white/50 backdrop-blur-2xl rounded-3xl p-4 flex flex-row items-center space-x-4 h-full border border-white/80 shadow-lg">
       <div className="bg-blue-100 text-blue-600 rounded-lg p-4 flex group-hover:bg-blue-500 group-hover:text-white shadow-inner-sm">
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
           <path strokeLinecap="round" strokeLinejoin="round" d={icon} />

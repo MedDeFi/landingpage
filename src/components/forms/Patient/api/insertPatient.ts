@@ -13,11 +13,8 @@ export async function addWaitlistPatient(formData: {
   try {
     const supabase = getSupabaseClient()
     
-    console.log('Server Action: Inserting data:', formData)
-    
     // Insert data into the waitlist table
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { data, error } = await supabase
+    const { error } = await supabase
       .from('patients_waitlist')
       .insert([
         {
@@ -29,18 +26,14 @@ export async function addWaitlistPatient(formData: {
       ])
     
     if (error) {
-      console.error('Server Action: Error inserting into patients_waitlist table:', error)
       throw new Error(error.message)
     }
-    
-    console.log('Server Action: Insert successful');
     
     // Revalidate the patients page to refresh the data
     revalidatePath('/patients')
     
     return { success: true }
   } catch (error) {
-    console.error('Server Action: Unexpected error:', error)
     throw new Error('An unexpected error occurred')
   }
 }

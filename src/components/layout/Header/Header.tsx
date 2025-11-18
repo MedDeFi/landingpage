@@ -69,9 +69,9 @@ export default function Header() {
               className="md:block lg:hidden p-2 rounded-md text-gray-100 hover:text-blue-100 transition-colors"
             >
             {isMenuOpen ? (
-                <Image src="/images/icons/MenuIsOpen.svg" alt="" width={24} height={24} className="h-6 w-6" aria-hidden="true" />
+                <Image src="/images/icons/MenuIsOpen.svg" alt="Close menu" width={24} height={24} className="h-6 w-6" />
               ) : (
-                <Image src="/images/icons/MenuIsClosed.svg" alt="" width={24} height={24} className="h-6 w-6" aria-hidden="true" />
+                <Image src="/images/icons/MenuIsClosed.svg" alt="Open menu" width={24} height={24} className="h-6 w-6" />
               )}
             </button>
           </div>

@@ -45,6 +45,8 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ['@supabase/supabase-js'],
   },
+  // Turbopack config (empty to use webpack for custom optimizations)
+  turbopack: {},
 };
 
 export default nextConfig;

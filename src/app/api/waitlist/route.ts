@@ -18,7 +18,6 @@ export async function POST(req: Request) {
 
     return NextResponse.json(result)
   } catch (error) {
-    console.error('API /waitlist error:', error)
     return NextResponse.json(
       { success: false, message: 'Internal Server Error.' },
       { status: 500 }
