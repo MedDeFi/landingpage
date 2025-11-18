@@ -1,6 +1,20 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Add redirects for production
+  async redirects() {
+    // Only apply in production - check via environment variable
+    if (process.env.VERCEL_ENV === 'production' || process.env.NODE_ENV === 'production') {
+      return [
+        {
+          source: '/',
+          destination: '/doctors',
+          permanent: false, // Use 307 redirect
+        },
+      ];
+    }
+    return [];
+  },
   webpack: (config, { isServer }) => {
     // Exclude Supabase Realtime from client-side bundle since it's not used
     if (!isServer) {

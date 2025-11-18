@@ -3,20 +3,20 @@ import type { NextRequest } from 'next/server';
 
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
-  
-  // Detect production by hostname (more reliable than NODE_ENV in Edge Runtime)
   const hostname = request.nextUrl.hostname;
+  
+  // More reliable production detection - hostname check is primary
+  // VERCEL_ENV is accessible in Edge Runtime, NODE_ENV may not be
   const isProduction = 
     hostname === 'meddefi.app' || 
     hostname === 'www.meddefi.app' ||
-    process.env.VERCEL_ENV === 'production' ||
-    process.env.NODE_ENV === 'production';
+    process.env.VERCEL_ENV === 'production';
 
   // In production, only allow /doctors route
   if (isProduction) {
     // Redirect root to /doctors
     if (pathname === '/') {
-      return NextResponse.redirect(new URL('/doctors', request.url));
+      return NextResponse.redirect(new URL('/doctors', request.url), 307);
     }
     
     // Allow /doctors and its sub-routes
@@ -44,7 +44,7 @@ export function middleware(request: NextRequest) {
 
   // In development, redirect homepage to /doctors
   if (pathname === '/') {
-    return NextResponse.redirect(new URL('/doctors', request.url));
+    return NextResponse.redirect(new URL('/doctors', request.url), 307);
   }
 
   return NextResponse.next();
@@ -52,12 +52,8 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    /*
-     * Match all request paths except for the ones starting with:
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     */
+    // Explicitly match root and all other paths
+    '/',
     '/((?!_next/static|_next/image|favicon.ico).*)',
   ],
 };
