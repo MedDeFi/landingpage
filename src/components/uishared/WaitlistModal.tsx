@@ -179,5 +179,3 @@ export const WaitlistModal = ({ isOpen, onClose }: WaitlistModalProps) => {
     </div>
   )
 }
-
-export default WaitlistModal

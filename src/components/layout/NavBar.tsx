@@ -1,8 +1,6 @@
 'use client';
 
-
-
-const Navbar = () => {
+const NavBar = () => {
 
   const MedDeFiLogoType = () => (
     <div className="flex items-center space-x-2">
@@ -33,4 +31,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar; 
+export default NavBar; 

@@ -1,18 +1,19 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
-import NavBar from '@/components/layout/NavBar';
 import { WaitlistModal } from '@/components/uishared/WaitlistModal';
-import { FAQdoctors } from '@/components/sectionsdoctor/FAQdoctors';
 import { CtaSectionDoc } from '@/components/sectionsdoctor/CtaSectionDoc';
-import HeroSectionDoctor  from '@/components/sectionsdoctor/HeroSectionDoctor';
-import { SmileDoc } from '@/components/sectionsdoctor/SmileDoc';
-import { AcrossBorders } from '@/components/sectionsdoctor/AcrossBorders';
+import MarketingHeroSection from './MarketingHeroSection';
+import BentoGrid1 from './BentoGrid1';
+import HeroMar from './HeroMar';
+import Bento from './bento';
+import BentoBox2 from './BentoBox2';
+import HeroSecs from '../ui/HeroSecs';
 
 // Note: Metadata export doesn't work with "use client" components
 // This would need to be moved to a separate layout.tsx file or the page needs to be server component
 
-export default function DoctorClientPage() {
+export default function MarketingClientPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isCtaVisible, setIsCtaVisible] = useState(false);
   const ctaSectionRef = useRef(null);
@@ -53,6 +54,11 @@ export default function DoctorClientPage() {
 
   return (
     <div className="flex justify-center items-center bg-black min-h-screen">
+    <div className="w-full bg-gray-50 shadow-2xl overflow-hidden relative">
+      {/* The Scene and Modal remain at the top level */}
+      <div className="absolute inset-0">{/* <Scene /> */}</div>
+      <WaitlistModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />  
+    <div className="flex justify-center items-center bg-black min-h-screen">
       <div className="w-full bg-gray-50 shadow-2xl overflow-hidden relative">
         {/* The Scene and Modal remain at the top level */}
         <div className="absolute inset-0">{/* <Scene /> */}</div>
@@ -60,30 +66,34 @@ export default function DoctorClientPage() {
 
 
         <div className="h-full overflow-hidden bg-gray-200 main-content relative">
-            <header className={`flex-1 justify-between items-center transition-all duration-700 ease-in-out relative z-50 bg-gray-200/80 backdrop-blur-sm px-4 ${isModalOpen ? 'animate-blur-in' : 'animate-blur-out'}`}>
-              <NavBar />
-            </header>
-
             {/* Composing the page with Section Components */}
-            <HeroSectionDoctor /> 
-            <AcrossBorders />  
-            <SmileDoc />         
-            <FAQdoctors />
-            <CtaSectionDoc ref={ctaSectionRef} onClaimSpot={() => setIsModalOpen(true)} />
+            <HeroMar onOpenModal={() => setIsModalOpen(true)} />
+            <HeroSecs
+              title="The Airbnb of Medical Tourism"
+              description="Connect with verified healthcare professionals worldwide. Secure payments, transparent pricing, and comprehensive care coordination."
+              imageSrc="/nurse2.webp"
+              imageVisibility={{hideOnMobile: false}}
+              imageAlt="Safest Platform for Medical Tourism"
+              linkHref="#form"
+              backgroundImage=""
+              backgroundVisibility={{hideOnMobile: true}}
+              backgroundColor="bg-gradient-to-tl from-blue-500/80 via-blue-500/50 to-blue-300/80"
+              buttonText="Join waitlist"
+              cardButton="true"
+              className="backdrop-blur-sm"
+            />
+
+
+            <BentoGrid1 />
+            <BentoBox2 />
+            <Bento />
         </div>
 
-        {/* Sticky Footer CTA */}
-        <div className={`lg:hidden fixed bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-gray-100/90 via-gray-100/90 to-transparent z-50 transition-opacity duration-300 ${(isCtaVisible || isModalOpen) ? 'opacity-0 pointer-events-none' : 'opacity-100 pointer-events-auto'}`}>
-          <div>
-            <button
-              onClick={() => setIsModalOpen(true)}
-              className="cta-button group w-full flex items-center justify-center bg-gradient-to-t from-blue-600 to-blue-500 text-white font-semibold py-4 px-6 rounded-full shadow-xg hover:shadow-xl transition-all duration-300 z-50 ease-in-out transform hover:scale-105 active:scale-100"
-            >
-              <span className="text-lg">Join the Waitlist</span>
-            </button>
-          </div>
-        </div>
-      </div>
+     </div>
+     </div>
+     </div>
+
+      
      
     </div>
   );

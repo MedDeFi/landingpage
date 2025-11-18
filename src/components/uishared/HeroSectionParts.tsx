@@ -54,3 +54,12 @@ export const HeroBookDemoButton: React.FC<{ onClick: () => void }> = ({ onClick 
     <span className="text-lg">Book a Demo</span>
   </button>
 );
+
+export const WaitlistButton: React.FC<{ onClick: () => void }> = ({ onClick }) => (
+  <button
+    onClick={onClick}
+    className="cta-button group w-full md:w-4/5 lg:w-3/5 flex items-center justify-center bg-gradient-to-t from-blue-500 via-blue-600 to-blue-500 text-white font-semibold mt-8 py-4 rounded-full shadow-xg hover:shadow-xl transition-all duration-300 !z-20 ease-in-out transform hover:scale-105 active:scale-100"
+  >
+    <span className="text-lg">Join Waitlist</span>
+  </button>
+);

@@ -1,16 +1,17 @@
-import React from 'react';
-import { HeroTitleDoc, HeroImage, WaitlistButton } from '../uishared/HeroSectionParts';
+import React, { useState } from 'react';
+import { HeroTitleDoc, HeroImage, WaitlistButton } from '@/components/uishared/HeroSectionParts';
+import { WaitlistModal } from '@/components/uishared/WaitlistModal';    
+import MarketingHeader from './MarketingHeader';
 
-interface HeroSectionDoctorProps {
-  onOpenModal?: () => void;
-}
-
-const HeroSectionDoctor = ({ onOpenModal }: HeroSectionDoctorProps) => {
+const MarketingHeroSection = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <>
       {/* Desktop (large screens) */}
-      <div className="hidden lg:block z-40 px-4 pt-4">
+      <div className="relative overflow-hidden h-[96vh] flex items-center m-4 rounded-3xl justify-left">
+        
+        <MarketingHeader />
         <div className="relative h-[95vh] bg-white shadow-xl overflow-hidden rounded-3xl w-full items-stretch">
           {/* Blue background on the right, containing image and patterns */}
           <div className="absolute inset-y-0 right-0 lg:w-1/2 items-end mr-4 mt-12 mb-12 justify-center bottom-0 bg-gradient-to-t from-blue-600 to-white rounded-full overflow-hidden">
@@ -24,6 +25,7 @@ const HeroSectionDoctor = ({ onOpenModal }: HeroSectionDoctorProps) => {
               <div className="absolute -right-1/2 top-1/4 -translate-y-1/2 w-full h-full bg-blue-400 opacity-10 transform -rotate-12 rounded-full"></div>
             </div>
           </div>
+        
           <div className="relative flex flex-col md:flex-row min-h-screen rounded-3xl">
             {/* Left Section - White Background */}
             <div className="w-full md:w-1/2 flex flex-col p-8 md:ml-8 text-gray-800 relative justify-center items-start rounded-3xl">
@@ -31,9 +33,13 @@ const HeroSectionDoctor = ({ onOpenModal }: HeroSectionDoctorProps) => {
                 <HeroTitleDoc />
             
                 <div className="flex mt-4">
-                  <WaitlistButton onClick={() => onOpenModal?.()} />
+                  <WaitlistButton onClick={() => setIsModalOpen(true)} />
                 </div>
               </div>
+            </div>
+            {/* Waitlist Modal */}
+            <div className="absolute inset-0 mb-16">
+              <WaitlistModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
             </div>
           </div>
         </div>
@@ -59,11 +65,15 @@ const HeroSectionDoctor = ({ onOpenModal }: HeroSectionDoctorProps) => {
             <div className="w-full md:w-1/2 flex flex-col p-8 md:ml-8 text-gray-800 relative justify-center items-center rounded-3xl">
               <div className="item-evenly">
                 <HeroTitleDoc />
-                
+                <div className="flex mt-4">
+                  <WaitlistButton onClick={() => setIsModalOpen(true)} />
+                </div>
               </div>
             </div>
             {/* Waitlist Modal */}
-           
+            <div className="absolute inset-0 mb-16">
+              <WaitlistModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+            </div>
           </div>
         </div>
       </div>
@@ -88,4 +98,4 @@ const HeroSectionDoctor = ({ onOpenModal }: HeroSectionDoctorProps) => {
   );
 };
 
-export default HeroSectionDoctor;
+export default MarketingHeroSection;
