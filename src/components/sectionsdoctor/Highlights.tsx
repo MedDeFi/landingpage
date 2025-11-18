@@ -202,7 +202,7 @@ export default function Highlights() {
   return (
     <section
       ref={sectionRef}
-      className="highlights-section relative min-h-screen rounded-3xl py-24 md:py-32 bg-gradient-to-bl from-blue-500 to-blue-700 overflow-hidden"
+      className="highlights-section relative min-h-screen rounded-3xl py-24 md:py-32 bg-black overflow-hidden"
       data-anim-scroll-group="Highlights"
       data-theme-changer="dark"
       data-analytics-section-engagement="name:highlights"
@@ -211,9 +211,9 @@ export default function Highlights() {
     >
       <div className="relative z-10">
         {/* Section Heading */}
-        <div ref={headingRef} className="text-center mb-16 md:mb-44 px-6">
+        <div ref={headingRef} className="text-center px-6 pb-8">
           <h2 className="text-5xl md:text-7xl font-semibold text-white mb-4">
-            A clear Path to Care
+            A clear Path to <span className="text-transparent bg-clip-text bg-gradient-to-bl from-blue-600 to-blue-300">Care</span>
           </h2>
           <p className="text-xl md:text-2xl text-gray-100">
             We're here to help you grow as a professional.
@@ -223,7 +223,7 @@ export default function Highlights() {
         {/* Gallery Grid */}
         <ul 
           role="presentation"
-          className="flex flex-row overflow-x-auto gap-4 md:gap-8 px-6 md:px-12 w-full mx-auto"
+          className="flex flex-row overflow-x-auto overflow-y-hidden gap-4 md:gap-8 px-6 md:px-12 w-full mx-auto h-[90vh]"
         >
           {galleryItems.map((item, index) => (
             <li
