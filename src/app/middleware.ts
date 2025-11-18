@@ -2,8 +2,15 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 export function middleware(request: NextRequest) {
-  const isProduction = process.env.NODE_ENV === 'production';
   const pathname = request.nextUrl.pathname;
+  
+  // Detect production by hostname (more reliable than NODE_ENV in Edge Runtime)
+  const hostname = request.nextUrl.hostname;
+  const isProduction = 
+    hostname === 'meddefi.app' || 
+    hostname === 'www.meddefi.app' ||
+    process.env.VERCEL_ENV === 'production' ||
+    process.env.NODE_ENV === 'production';
 
   // In production, only allow /doctors route
   if (isProduction) {
