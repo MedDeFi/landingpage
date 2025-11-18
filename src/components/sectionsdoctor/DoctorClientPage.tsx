@@ -12,6 +12,13 @@ import { AcrossBorders } from '@/components/sectionsdoctor/AcrossBorders';
 import Showcase from '../ui/Showcase';
 import Highlights from './Highlights';
 
+// Critical images that must load before showing content
+const CRITICAL_IMAGES = [
+  '/nurse2.webp',              // HeroSectionDoctor
+  '/meddefi-globe.webp',       // Showcase
+  '/meddefi-mask-logo.svg'     // Showcase
+];
+
 // Note: Metadata export doesn't work with "use client" components
 // This would need to be moved to a separate layout.tsx file or the page needs to be server component
 
@@ -49,7 +56,10 @@ export default function DoctorClientPage() {
   return (
     <>
       {isInitialLoading && (
-        <Loading onLoadingComplete={() => setIsInitialLoading(false)} />
+        <Loading 
+          onLoadingComplete={() => setIsInitialLoading(false)}
+          criticalImages={CRITICAL_IMAGES}
+        />
       )}
       {!isInitialLoading && (
         <div className="flex justify-center bg-gray-200 items-center min-h-screen">
@@ -65,7 +75,7 @@ export default function DoctorClientPage() {
 
               {/* Composing the page with Section Components */}
               <HeroSectionDoctor onOpenModal={() => setIsModalOpen(true)} /> 
-              <Showcase />
+              <Showcase animationsEnabled={!isInitialLoading} />
               <AcrossBorders />  
               <Highlights />
               <CtaSectionDoc ref={ctaSectionRef} onClaimSpot={() => setIsModalOpen(true)} />

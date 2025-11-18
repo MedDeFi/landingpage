@@ -10,11 +10,16 @@ import Image from 'next/image';
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
-const Showcase = () => {
+interface ShowcaseProps {
+  animationsEnabled?: boolean;
+}
+
+const Showcase = ({ animationsEnabled = false }: ShowcaseProps) => {
   const isTablet = useMediaQuery({ query: '(max-width: 1024px)' });
 
   useGSAP(() => {
-    if (!isTablet) {
+    // Only initialize GSAP animations after loading is complete
+    if (!isTablet && animationsEnabled) {
       const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: '#showcase',
@@ -22,9 +27,9 @@ const Showcase = () => {
           end: 'bottom top',
           scrub: true,
           pin: true,
-          pinSpacing: true,  // Add this - controls spacing behavior
-          anticipatePin: 1,  // Add this - prevents layout shift
-          invalidateOnRefresh: true,  // Add this - fixes responsive issues
+          pinSpacing: true,  // Controls spacing behavior
+          anticipatePin: 1,  // Prevents layout shift
+          invalidateOnRefresh: true,  // Fixes responsive issues
         },
       });
       
@@ -37,24 +42,31 @@ const Showcase = () => {
           y: 0, 
           ease: 'power1.in' 
         });
-    } else {
-      // Add cleanup for tablet/mobile
+    } else if (!animationsEnabled || isTablet) {
+      // Cleanup any existing ScrollTrigger instances
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     }
-  }, [isTablet]);
+  }, [isTablet, animationsEnabled]);
 
   return (
     <section className="flex flex-col bg-black w-full rounded-3xl" id="showcase">
       <div className="media rounded-3xl overflow-hidden w-full relative">
         <Image 
-          src="/meddefi-globe.png" 
+          src="/meddefi-globe.webp" 
           alt="MedDeFi Globe" 
           width={1000} 
-          height={1000} 
+          height={1000}
+          quality={100}
+          priority
+          fetchPriority="high"
           className="w-full object-cover object-bottom"
         />
         <div className="mask">
-          <img src="/meddefi-mask-logo.svg" alt="Mask logo" />
+          <img 
+            src="/meddefi-mask-logo.svg" 
+            alt="Mask logo"
+            loading="eager"
+          />
         </div>
       </div>
       <div className="content h-auto">

@@ -1,36 +1,52 @@
 'use client';
 
 import { useEffect, useState, useRef } from 'react';
+import { useImagePreloader } from '@/hooks/useImagePreloader';
 
 interface LoadingProps {
   onLoadingComplete?: () => void;
+  criticalImages?: string[];
 }
 
-export default function Loading({ onLoadingComplete }: LoadingProps) {
+export default function Loading({ onLoadingComplete, criticalImages = [] }: LoadingProps) {
   const [isReady, setIsReady] = useState(false);
   const [fadeOut, setFadeOut] = useState(false);
+  const [fontsReady, setFontsReady] = useState(false);
+  const [domReady, setDomReady] = useState(false);
   const loadingStartTime = useRef<number>(Date.now());
+  
+  // Preload critical images
+  const { isLoading: imagesLoading, progress } = useImagePreloader(criticalImages);
 
+  // Wait for fonts
   useEffect(() => {
-    const checkReady = async () => {
-      // Wait for fonts
+    const loadFonts = async () => {
       if (document.fonts) {
         await document.fonts.ready;
       }
-
-      // Wait for images to start loading
-      await new Promise(resolve => setTimeout(resolve, 300));
-
-      // Check if DOM is ready
-      if (document.readyState === 'complete') {
-        setIsReady(true);
-      } else {
-        window.addEventListener('load', () => setIsReady(true));
-      }
+      setFontsReady(true);
     };
 
-    checkReady();
+    loadFonts();
   }, []);
+
+  // Wait for DOM
+  useEffect(() => {
+    if (document.readyState === 'complete') {
+      setDomReady(true);
+    } else {
+      const handleLoad = () => setDomReady(true);
+      window.addEventListener('load', handleLoad);
+      return () => window.removeEventListener('load', handleLoad);
+    }
+  }, []);
+
+  // Set ready when all conditions are met
+  useEffect(() => {
+    if (fontsReady && domReady && !imagesLoading) {
+      setIsReady(true);
+    }
+  }, [fontsReady, domReady, imagesLoading]);
 
   useEffect(() => {
     if (isReady && onLoadingComplete) {
