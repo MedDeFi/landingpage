@@ -29,7 +29,7 @@ The goal of this landing page is to:
 - Node.js 18+ installed
 - npm or yarn package manager
 - Supabase account (for database)
-- Resend account (optional, for emails)
+- Resend account (for emails)
 
 ### Installation
 

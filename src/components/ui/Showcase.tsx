@@ -92,14 +92,20 @@ const Showcase = ({ animationsEnabled = false }: ShowcaseProps) => {
           </div>
           <div className="max-w-3xs space-y-14">
             <div className="space-y-2">
-              <p>Up to</p>
+              <p className='text-zinc-100/50'>Up to</p>
               <h3 className="green-gradient">99% secure</h3>
-              <p>vs traditional systems</p>
+              <p className='text-zinc-100/50'>vs traditional systems</p>
             </div>
             <div className="space-y-2">
-              <p>Settle payments in</p>
-              <h3>~2 seconds</h3>
+              <p className='text-zinc-100/50'>Settle payments in</p>
+              <h3 className='orange-gradient'>~2 seconds</h3>
               <p className="text-zinc-200/50">vs 3-5 days</p>
+            </div>
+            <div className="space-y-2">
+              <p className='text-zinc-100/50'>Handling</p>
+              <h3 className="blue-gradient">Privacy</h3>
+              <p className='text-zinc-100/50'>in easy mode</p>
+              <p className='text-zinc-200/50 text-sm'>Making sure what's yours stay with you</p>
             </div>
           </div>
         </div>

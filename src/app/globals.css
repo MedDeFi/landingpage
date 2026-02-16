@@ -451,3 +451,24 @@
     font-size: 3rem;
   }
 }
+
+.green-gradient {
+  background: linear-gradient(90deg, #35a98a 0%, #6dd400 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.blue-gradient {
+  background: linear-gradient(90deg, #9EC9DA 0%, #00427B 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.orange-gradient {
+  background: linear-gradient(90deg, #dab49e 0%, #ff9900 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
